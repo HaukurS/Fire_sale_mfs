@@ -80,8 +80,8 @@ DATABASES = {
         'NAME': 'fire_sale_db',
         'USER': 'fire_sale_db_user',
         'PASSWORD': 'abc123',
-        'HOST': '',
-        'PORT': ''
+        'HOST': '35.246.52.122',
+        'PORT': '5432'
     }
 }
 
