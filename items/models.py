@@ -19,7 +19,7 @@ class Item(models.Model):
 
 
 class ItemImage(models.Model):
-    image = models.CharField(max_length=9999)
+    image = models.CharField(max_length=255)
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
 
 
