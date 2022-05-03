@@ -27,4 +27,3 @@ class ItemOffer(models.Model):
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
     price = models.FloatField()
     bidder = models.ForeignKey(User, on_delete=models.CASCADE)
-    owner = models.ForeignKey(User, on_delete=models.CASCADE)
