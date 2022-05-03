@@ -1,4 +1,5 @@
 from django.db import models
+from Users.models import User
 
 
 # Create your models here.
@@ -14,7 +15,7 @@ class Item(models.Model):
     condition = models.CharField(max_length=9999)
     category = models.ForeignKey(ItemCategory, on_delete=models.CASCADE)
     price = models.FloatField()
-    # owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
 class ItemImage(models.Model):
@@ -25,5 +26,5 @@ class ItemImage(models.Model):
 class ItemOffer(models.Model):
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
     price = models.FloatField()
-    # bidder = models.ForeignKey(User, on_delete=models.CASCADE)
-    # owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    bidder = models.ForeignKey(User, on_delete=models.CASCADE)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
