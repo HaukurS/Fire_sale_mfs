@@ -1,5 +1,6 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
-    return render(request, 'items/Index.html')
+    return HttpResponse('<h1>Öskur trúðsins inní nóttinni</h1>')
