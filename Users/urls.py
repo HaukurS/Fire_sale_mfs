@@ -3,6 +3,6 @@ from . import views
 
 
 urlpatterns = [
-    # localhost:8000/Profile
+    # localhost:8000/User
     path('', views.index, name="index "),
 ]
