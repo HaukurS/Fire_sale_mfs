@@ -16,7 +16,7 @@ def create_item(request):
             item = form.save()
             item_image = ItemImage(image=request.POST['image'], item=item)
             item_image.save()
-            return redirect('')
+            return redirect('index')
     else:
         form = ItemCreateForm()
         # TODO: Instance new ItemCreateForm()
