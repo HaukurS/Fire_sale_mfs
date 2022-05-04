@@ -12,7 +12,4 @@ def create_item(request):
     else:
         print(2)
         # TODO: Instance new ItemCreateForm()
-    return render(request, 'item/create_item.html', {
-        'form': form
-    })
 
