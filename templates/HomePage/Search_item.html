@@ -2,7 +2,10 @@
 {% block content %}
     {% if searched %}
         <h2>The item you searched for: {{ searched }}</h2>
-
+        <br/>
+        {% for item in items %}
+            {{ item.name }} <br/>
+        {% endfor %}
         {% else %}
         <h2>Nothing was put in the search bar!</h2>
     {% endif %}
