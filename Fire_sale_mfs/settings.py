@@ -77,7 +77,16 @@ WSGI_APPLICATION = 'Fire_sale_mfs.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'fire_sale_db',
+        'USER': 'fire_sale_db_user',
+        'PASSWORD': 'abc123',
+        'HOST': '35.246.52.122',
+        'PORT': '5432'
+    }
+}
 
 
 # Password validation
@@ -114,7 +123,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
