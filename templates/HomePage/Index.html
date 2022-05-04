@@ -1,0 +1,10 @@
+{% extends 'Base.html' %}
+{% block content %}
+<h2>HomePage</h2>
+    <form class="d-flex" method="POST" action="{% url 'itemsearch' %}">
+    {% csrf_token %}
+    <div class="searchbar">
+  <input class="form-control me-2" type="search" placeholder="Search for an item..." name="searched">
+    </div>
+    </form>
+{% endblock %}
