@@ -8,6 +8,9 @@ from Users.models import User
 class ItemCategory(models.Model):
     name = models.CharField(max_length=255)
 
+    def __str__(self):
+        return self.name
+
 
 class Item(models.Model):
     name = models.CharField(max_length=255)
@@ -17,13 +20,20 @@ class Item(models.Model):
     price = models.FloatField()
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.name
+
 
 class ItemImage(models.Model):
     image = models.CharField(max_length=255)
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.image
 
 
 class ItemOffer(models.Model):
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
     price = models.FloatField()
     bidder = models.ForeignKey(User, on_delete=models.CASCADE)
+

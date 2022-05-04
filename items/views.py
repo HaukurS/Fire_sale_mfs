@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from items.forms.item_form import ItemCreateForm
+from items.models import ItemImage
 
 # Create your views here.
 
@@ -10,11 +11,16 @@ def index(request):
 
 def create_item(request):
     if request.method == 'POST':
-        print(1)
+        form = ItemCreateForm(data=request.POST)
+        if form.is_valid():
+            item = form.save()
+            item_image = ItemImage(image=request.POST['image'], item=item)
+            item_image.save()
+            return redirect('')
     else:
         form = ItemCreateForm()
         # TODO: Instance new ItemCreateForm()
-    return render(request, 'candy/create_candy.html', {
+    return render(request, 'item/create_item.html', {
         'form': form
     })
 
