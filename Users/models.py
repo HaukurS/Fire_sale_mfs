@@ -10,4 +10,7 @@ class User(models.Model):
     email = models.CharField(max_length=255)
     bio = models.CharField(max_length=9999)
 
+    def __str__(self):
+        return self.name
+
 
