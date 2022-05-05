@@ -17,6 +17,11 @@ def get_item_by_id(request, id):
     })
 
 
+def get_items_by_category(request, category):
+    context = {'items': Item.objects.filter(category__item__name=category)}
+    return render(request, 'Item/Index.html', context)
+
+
 def create_item(request):
     if request.method == 'POST':
         form = ItemCreateForm(data=request.POST)
