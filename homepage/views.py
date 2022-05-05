@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from items import models
+from items.models import Item
 
 # Create your views here.
 
@@ -9,7 +9,7 @@ def home(request):
 def search_item(request):
     if request.method == "POST":
         searched = request.POST['searched']
-        items = models.Item.filter(name__contains=searched)
+        items = Item.objects.filter(name__contains=searched)
         return render(request, 'HomePage/Search_item.html',
                       {'searched':searched,
                        'items':items})
