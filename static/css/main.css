@@ -2,3 +2,21 @@
     background-color: red;
     border: solid 2px black;
 }
+
+.item-block{
+      display:inline-block;
+      width: 30%;
+      background-color: palevioletred;
+      margin-left: 15px;
+      padding-left: 7px;
+      padding-right: 7px;
+      padding-bottom: 15px;
+      border: 3px dashed black;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bold;
+      font-size:small;
+}
+
+.item-block-cont{
+    width: 1000px;
+}

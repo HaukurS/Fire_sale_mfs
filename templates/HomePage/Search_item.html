@@ -1,18 +1,21 @@
 {% extends 'Base.html' %}
 {% block content %}
     {% if searched %}
+        <div class="item-block-cont">
         <h2>The item you searched for: {{ searched }}</h2>
         <br/>
         {% for item in items %}
+            <p class="item-block">
             {{ item.name }} <br/>
             {{ item.description }} <br/>
             {{ item.condition }} <br/>
             {{ item.category }} <br/>
             {{ item.price }} <br/>
             {{ item.owner }} <br/>
-            <br/>
+            </p>
         {% endfor %}
         {% else %}
         <h2>Nothing was put in the search bar!</h2>
+        </div>
     {% endif %}
 {% endblock %}
