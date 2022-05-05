@@ -5,7 +5,7 @@ from Users.models import User
 def register_user(request):
     if request.method == 'POST':
         form = UserRegisterForm(data=request.POST)
-        if form.is_valid():
+        if form.is_valid() and request.POST['password'] == request.POST['re_enter_password']:
             user = form.save()
             return redirect('homepage')
     else:
