@@ -2,3 +2,5 @@
 venv
 /venv
 *.sqlite3
+.idea
+Fire_sale_mfs/.idea
