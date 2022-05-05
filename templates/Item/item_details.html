@@ -1,9 +1,12 @@
 {% extends "Base.html" %}
 {% block content %}
+
     <h1>{{ item.name }}</h1>
     <p>{{ item.description }}</p>
     <p>{{ item.condition }}</p>
     <p>${{ item.price }}</p>
     <p>Owner:  {{ item.owner.name }}</p>
     <a href="{% url 'delete_item' item.id%}" class="block btn-btn primary">Delete Item</a>
+    <a href="{% url 'update_item' item.id%}" class="block btn-btn primary">Update Item</a>
+
 {% endblock %}

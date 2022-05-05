@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from items.forms.item_form import ItemCreateForm
+from items.forms.item_form import ItemCreateForm, ItemUpdateForm
 from items.models import ItemImage, Item
 from Users.models import User
 
@@ -42,4 +42,20 @@ def delete_item(request, id):
     item = get_object_or_404(Item, pk=id)
     item.delete()
     return redirect('index')
+
+
+def update_item(request, id):
+    instance = get_object_or_404(Item, pk=id)
+    if request.method == 'POST':
+        form = ItemUpdateForm(data = request.POST, instance=instance)
+        if form.is_valid():
+            form.save()
+            return redirect('item_details', id=id)
+    else:
+        form = ItemUpdateForm(instance=instance)
+    return render(request, 'Item/update_item.html', {
+        'form': form,
+        'id': id
+
+    })
 
