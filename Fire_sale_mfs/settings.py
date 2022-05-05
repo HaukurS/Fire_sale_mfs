@@ -42,8 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'items.apps.ItemsConfig',
     'Users.apps.UsersConfig',
-    'checkout.apps.CheckoutConfig'
-]
+    'checkout.apps.CheckoutConfig',
+    'signIn.apps.SigninConfig'
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
