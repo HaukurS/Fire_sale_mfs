@@ -11,6 +11,16 @@ def index(request):
     return render(request, 'Item/Index.html', context)
 
 
+def orderpricehigh(request):
+    context = {'items': Item.objects.all().order_by('-price')}
+    return render(request, 'Item/Index.html', context)
+
+
+def orderpricelow(request):
+    context = {'items': Item.objects.all().order_by('price')}
+    return render(request, 'Item/Index.html', context)
+
+
 def get_item_by_id(request, id):
     return render(request, 'Item/item_details.html', {
         'item': get_object_or_404(Item, pk=id)
