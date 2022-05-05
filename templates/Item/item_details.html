@@ -1,0 +1,8 @@
+{% extends "Base.html" %}
+{% block content %}
+    <h1>{{ item.name }}</h1>
+    <p>{{ item.description }}</p>
+    <p>{{ item.condition }}</p>
+    <p>${{ item.price }}</p>
+    <p>Owner:  {{ item.owner.name }}</p>
+{% endblock %}
