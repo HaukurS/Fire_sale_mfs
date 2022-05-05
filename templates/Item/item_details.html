@@ -5,4 +5,5 @@
     <p>{{ item.condition }}</p>
     <p>${{ item.price }}</p>
     <p>Owner:  {{ item.owner.name }}</p>
+    <a href="{% url 'delete_item' item.id%}" class="block btn-btn primary">Delete Item</a>
 {% endblock %}
