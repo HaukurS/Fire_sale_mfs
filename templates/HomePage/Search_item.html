@@ -5,6 +5,12 @@
         <br/>
         {% for item in items %}
             {{ item.name }} <br/>
+            {{ item.description }} <br/>
+            {{ item.condition }} <br/>
+            {{ item.category }} <br/>
+            {{ item.price }} <br/>
+            {{ item.owner }} <br/>
+            <br/>
         {% endfor %}
         {% else %}
         <h2>Nothing was put in the search bar!</h2>
