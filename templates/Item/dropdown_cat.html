@@ -1,0 +1,14 @@
+<label for="categories">Categories:</label>
+<select name="Category" id="Category" onchange="javascript:handleSelect(this)">
+    <option></option>
+    <option value="/items">Alphabetical</option>
+  <option value="/items/filter_price_high">Price High-Low</option>
+  <option value="/items/filter_price_low">Price Low-High</option>
+</select>
+
+<script type="text/javascript">
+  function handleSelect(elm)
+  {
+     window.location = elm.value;
+  }
+</script>
