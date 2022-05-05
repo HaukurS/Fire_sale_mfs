@@ -1,13 +1,14 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from items.forms.item_form import ItemCreateForm
-from items.models import ItemImage
+from items.models import ItemImage, Item
 from Users.models import User
 
 # Create your views here.
 
 
 def index(request):
-    return render(request, 'Item/Index.html')
+    context = {'items': Item.objects.all().order_by('name')}
+    return render(request, 'Item/Index.html', context)
 
 
 def create_item(request):
@@ -24,4 +25,10 @@ def create_item(request):
     return render(request, 'Item/create_item.html', {
         'form': form
     })
+
+
+def delete_item(request, id):
+    item = get_object_or_404(Item, pk=id)
+    item.delete()
+    redirect('index')
 
