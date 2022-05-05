@@ -2,6 +2,7 @@ from django.forms import ModelForm, widgets
 from items.models import Item
 from django import forms
 
+
 class ItemCreateForm(ModelForm):
     image = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
     class Meta:
