@@ -1,6 +1,6 @@
 from django.forms import ModelForm, widgets
 
 
-class UserCreateFrom(ModelForm):
+class UserCreateForm(ModelForm):
     class Meta():
         pass
