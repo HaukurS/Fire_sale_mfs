@@ -9,6 +9,8 @@ class User(models.Model):
     password = models.CharField(max_length=255)
     email = models.CharField(max_length=255)
     bio = models.CharField(max_length=9999, blank=True, null=True)
+    street_name = models.CharField(max_length=999, blank=True, null=True)
+    phone_number = models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):
         return self.name
