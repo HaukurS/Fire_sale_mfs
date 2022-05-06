@@ -15,21 +15,20 @@ def create_paymentinfo(request):
     else:
         form = PaymentInfoCreateForm()
         # TODO: Instance new ItemCreateForm()
-    return render(request, 'Item/create_item.html', {
+    return render(request, 'Checkout/step_two.html', {
         'form': form
     })
 
 
-def create_contactinfo(request, id):
-    instance = get_object_or_404(User, pk=id)
+def create_contactinfo(request):
     if request.method == 'POST':
         form = ContactCreateForm(data=request.POST)
         if form.is_valid():
             form.save()
             return redirect('index')
     else:
-        form = ContactCreateForm(instance=instance)
+        form = ContactCreateForm()
         # TODO: Instance new ItemCreateForm()
-    return render(request, 'Item/create_item.html', {
+    return render(request, 'Checkout/step_one.html', {
         'form': form
     })
