@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+    <h1>Checkout Step 1</h1>
     <form class="form form-horizontal" action=" {% url 'step_one' %} " method ="post">
         {% csrf_token %}
         {{ form }}
