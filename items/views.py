@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from items.forms.item_form import ItemCreateForm, ItemUpdateForm, PlaceBidForm
-from items.models import ItemImage, Item, ItemCategory, ItemOffer
+from items.models import ItemImage, Item, ItemCategory
 from Users.models import User
 
 # Create your views here.
