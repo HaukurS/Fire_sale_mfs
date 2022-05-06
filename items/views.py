@@ -31,8 +31,11 @@ def get_item_by_id(request, id):
 
 
 def get_items_by_category(request, category):
-    context = {'items': Item.objects.filter(category__item__name=category)}
+    context = {'items': Item.objects.all().filter(category__name__exact=category),
+               'categorys': ItemCategory.objects.all()}
     return render(request, 'Item/Index.html', context)
+    #context = {'items': Item.objects.filter(category__item__name=category)}
+    #return render(request, 'Item/Index.html', context)
 
 
 def create_item(request):
