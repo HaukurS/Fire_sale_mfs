@@ -1,23 +1,26 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from items.forms.item_form import ItemCreateForm, ItemUpdateForm
-from items.models import ItemImage, Item
+from items.models import ItemImage, Item, ItemCategory
 from Users.models import User
 
 # Create your views here.
 
 
 def index(request):
-    context = {'items': Item.objects.all().order_by('name')}
+    context = {'items': Item.objects.all().order_by('name'),
+               'categorys': ItemCategory.objects.all()}
     return render(request, 'Item/Index.html', context)
 
 
 def orderpricehigh(request):
-    context = {'items': Item.objects.all().order_by('-price')}
+    context = {'items': Item.objects.all().order_by('-price'),
+               'categorys': ItemCategory.objects.all()}
     return render(request, 'Item/Index.html', context)
 
 
 def orderpricelow(request):
-    context = {'items': Item.objects.all().order_by('price')}
+    context = {'items': Item.objects.all().order_by('price'),
+               'categorys': ItemCategory.objects.all()}
     return render(request, 'Item/Index.html', context)
 
 

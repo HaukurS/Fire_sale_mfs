@@ -2,6 +2,7 @@
 {% block content %}
 <h2 class="red">Item site</h2>
     {% include 'Item/dropdown.html' %}
+    {% include 'Item/dropdown_cat.html' %}
     <div class="items">
         {% for item in items %}
             {% include 'Item/single_item.html' with item=item %}
