@@ -1,9 +1,9 @@
 <label for="categories">Categories:</label>
 <select name="Category" id="Category" onchange="javascript:handleSelect(this)">
     <option></option>
-    <option value="/items">Alphabetical</option>
-  <option value="/items/filter_price_high">Price High-Low</option>
-  <option value="/items/filter_price_low">Price Low-High</option>
+    {% for category in categorys %}
+            <option>{{category.name}}</option>
+        {% endfor %}
 </select>
 
 <script type="text/javascript">
