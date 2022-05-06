@@ -5,7 +5,7 @@
     <p>{{ item.description }}</p>
     <p>{{ item.condition }}</p>
     <p>${{ item.price }}</p>
-        <form action="">
+        <form class="form form-horizontal" action=" {% url 'place_bid' id %} " method ="post">
             <label for="amount">Amount:</label><br>
             <div class="amount">
                 <input type="text" id="amount" name="amount" value=""><br>

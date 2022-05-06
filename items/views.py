@@ -79,7 +79,6 @@ def place_bid(request, id):
     if request.method == "POST":
         form = PlaceBidForm(data = request.POST)
         if form.is_valid():
-            item = form.save()
             form.save()
             return redirect('placed_bid', id=id)
     else:

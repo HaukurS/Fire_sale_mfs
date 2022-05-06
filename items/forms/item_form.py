@@ -35,5 +35,5 @@ class PlaceBidForm(ModelForm):
         model = ItemOffer
         exclude = ['id']
         widgets = {
-            'price': widgets.NumberInput
+            'price': widgets.NumberInput(attrs= {'class': 'form-control'})
         }
