@@ -12,5 +12,6 @@ urlpatterns = [
     path('delete_item<int:id>', views.delete_item, name='delete_item'),
     path('<str:category>', views.get_items_by_category, name='filter_items'),
     path('update_item/<int:id>', views.update_item, name='update_item'),
-    path('place_bid', views.place_bid, name='place_bid')
+    # path('place_bid', views.place_bid, name='place_bid'),
+    path('placed_bid', views.place_bid, name='placed_bid')
 ]

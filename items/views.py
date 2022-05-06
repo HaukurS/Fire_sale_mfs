@@ -75,12 +75,16 @@ def update_item(request, id):
 
     })
 
-def place_bid(request):
+def place_bid(request, id):
     if request.method == "POST":
-        print(1)
+        form = PlaceBidForm(data = request.POST)
+        if form.is_valid():
+            item = form.save()
+            form.save()
+            return redirect('placed_bid', id=id)
     else:
         form = PlaceBidForm()
     return render(request, 'Item/place_bid.html', {
-        'form': form
-
+        'form': form,
+        'id': id
     })
