@@ -1,0 +1,14 @@
+<label for="categories">Categories:</label>
+<select name="Category" id="Category" onchange="javascript:handleSelect(this)">
+    <option></option>
+    {% for category in categorys %}
+            <option>{{category.name}}</option>
+        {% endfor %}
+</select>
+
+<script type="text/javascript">
+  function handleSelect(elm)
+  {
+     window.location = elm.value;
+  }
+</script>
