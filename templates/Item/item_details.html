@@ -1,12 +1,23 @@
 {% extends "Base.html" %}
 {% block content %}
-
+<div class="bidding">
     <h1>{{ item.name }}</h1>
     <p>{{ item.description }}</p>
     <p>{{ item.condition }}</p>
     <p>${{ item.price }}</p>
+        <form action="">
+            <label for="amount">Amount:</label><br>
+            <div class="amount">
+                <input type="text" id="amount" name="amount" value=""><br>
+            </div>
+            <div class="amount">
+                <p>kr.</p>
+            </div>
+            <input type="submit" value="Place bid">
+        </form>
+
     <p>Owner:  {{ item.owner.name }}</p>
     <a href="{% url 'delete_item' item.id%}" class="block btn-btn primary">Delete Item</a>
     <a href="{% url 'update_item' item.id%}" class="block btn-btn primary">Update Item</a>
-
+</div>
 {% endblock %}
