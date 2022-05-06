@@ -11,7 +11,7 @@ def create_paymentinfo(request):
         form = PaymentInfoCreateForm(data=request.POST)
         if form.is_valid():
             form.save()
-            return redirect('index')
+            return redirect('step_three')
     else:
         form = PaymentInfoCreateForm()
         # TODO: Instance new ItemCreateForm()
@@ -25,7 +25,7 @@ def create_contactinfo(request):
         form = ContactCreateForm(data=request.POST)
         if form.is_valid():
             form.save()
-            return redirect('index')
+            return redirect('step_two')
     else:
         form = ContactCreateForm()
         # TODO: Instance new ItemCreateForm()
