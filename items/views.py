@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from items.forms.item_form import ItemCreateForm, ItemUpdateForm, PlaceBidForm
+from items.forms.item_form import ItemCreateForm, ItemUpdateForm, BidCreateForm
 from items.models import ItemImage, Item, ItemCategory
 from Users.models import User
 
@@ -39,9 +39,11 @@ def get_items_by_category(request, category):
 
 
 def create_item(request):
+    user = request.user
     if request.method == 'POST':
         form = ItemCreateForm(data=request.POST)
         if form.is_valid():
+            form.cleaned_data['owner'] = user
             item = form.save()
             item_image = ItemImage(image=request.POST['image'], item=item)
             item_image.save()
@@ -72,17 +74,20 @@ def update_item(request, id):
     return render(request, 'Item/update_item.html', {
         'form': form,
         'id': id
-
     })
 
+
 def place_bid(request, id):
-    if request.method == "POST":
-        form = PlaceBidForm(data = request.POST)
+    instance = get_object_or_404(Item, pk=id)
+    user = request.user
+    if request.method == 'POST':
+        form = BidCreateForm(data=request.POST, instance=instance)
         if form.is_valid():
+            form.cleaned_data['bidder'] = user
             form.save()
-            return redirect('placed_bid', id=id)
+            return redirect('item_details', id=id)
     else:
-        form = PlaceBidForm()
+        form = BidCreateForm(instance=instance)
     return render(request, 'Item/place_bid.html', {
         'form': form,
         'id': id

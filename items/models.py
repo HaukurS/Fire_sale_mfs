@@ -34,6 +34,6 @@ class ItemImage(models.Model):
 
 class ItemOffer(models.Model):
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
-    price = models.FloatField()
+    item_price = models.FloatField()
     bidder = models.ForeignKey(User, on_delete=models.CASCADE)
 
