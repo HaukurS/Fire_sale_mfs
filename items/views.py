@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from items.forms.item_form import ItemCreateForm, ItemUpdateForm
-from items.models import ItemImage, Item, ItemCategory
+from items.forms.item_form import ItemCreateForm, ItemUpdateForm, PlaceBidForm
+from items.models import ItemImage, Item, ItemCategory, ItemOffer
 from Users.models import User
 
 # Create your views here.
@@ -72,3 +72,12 @@ def update_item(request, id):
 
     })
 
+def place_bid(request):
+    if request.method == "POST":
+        print(1)
+    else:
+        form = PlaceBidForm()
+    return render(request, 'Item/place_bid.html', {
+        'form': form
+
+    })
