@@ -40,11 +40,13 @@ def get_items_by_category(request, category):
 
 def create_item(request):
     user = request.user
+    user_obj = User.objects.get(id=user.id)
     if request.method == 'POST':
         form = ItemCreateForm(data=request.POST)
         if form.is_valid():
-            form.cleaned_data['owner'] = user
-            item = form.save()
+            item = form.save(commit=False)
+            item.owner = user_obj
+            item.save()
             item_image = ItemImage(image=request.POST['image'], item=item)
             item_image.save()
             return redirect('index')
@@ -78,16 +80,18 @@ def update_item(request, id):
 
 
 def place_bid(request, id):
-    instance = get_object_or_404(Item, pk=id)
     user = request.user
+    user_obj = User.objects.get(id=user.id)
+    item_obj = Item.objects.get(id=id)
     if request.method == 'POST':
-        form = BidCreateForm(data=request.POST, instance=instance)
+        form = BidCreateForm(data=request.POST)
         if form.is_valid():
-            form.cleaned_data['bidder'] = user
+            form.bidder = user_obj
+            form.item = item_obj
             form.save()
             return redirect('item_details', id=id)
     else:
-        form = BidCreateForm(instance=instance)
+        form = BidCreateForm()
     return render(request, 'Item/place_bid.html', {
         'form': form,
         'id': id
