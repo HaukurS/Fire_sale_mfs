@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from items.forms.item_form import ItemCreateForm, ItemUpdateForm, BidCreateForm
-from items.models import ItemImage, Item, ItemCategory
+from items.models import ItemImage, Item, ItemCategory, ItemOffer
 from Users.models import User
 
 # Create your views here.
@@ -103,3 +103,9 @@ def get_user_items(request):
     user = request.user
     context = {'items': Item.objects.filter(owner_id=user.id)}
     return render(request, 'Item/my_items.html', context)
+
+
+def get_user_bids(request):
+    user = request.user
+    context = {'item_offers': ItemOffer.objects.filter(bidder_id=user.id)}
+    return render(request, 'Item/my_bids.html', context)
