@@ -97,3 +97,9 @@ def place_bid(request, id):
         'form': form,
         'id': id
     })
+
+
+def get_user_items(request):
+    user = request.user
+    context = {'items': Item.objects.filter(owner_id=user.id)}
+    return render(request, 'Item/my_items.html', context)
