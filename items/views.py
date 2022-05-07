@@ -86,9 +86,10 @@ def place_bid(request, id):
     if request.method == 'POST':
         form = BidCreateForm(data=request.POST)
         if form.is_valid():
-            form.bidder = user_obj
-            form.item = item_obj
-            form.save()
+            item_bid = form.save(commit=False)
+            item_bid.bidder = user_obj
+            item_bid.item = item_obj
+            item_bid.save()
             return redirect('item_details', id=id)
     else:
         form = BidCreateForm()
