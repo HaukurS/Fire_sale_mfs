@@ -12,7 +12,7 @@ class UserRegistration(ModelForm):
         exclude = ['id','bio', 'street_name', 'phone_number', 'country', 'city', 'zip']
         widgets = {
             'name': widgets.TextInput(attrs= {'class': 'form-control'}),
-            'password': widgets.TextInput(attrs={'class': 'form-control'}),
+            'password': widgets.PasswordInput(attrs={'class': 'form-control'}),
             'email': widgets.TextInput(attrs={'class': 'form-control'})
         }
 #class UserLogInForm(ModelForm):

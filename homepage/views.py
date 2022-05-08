@@ -1,10 +1,12 @@
 from django.shortcuts import render
-from items.models import Item
+from items.models import Item, ItemOffer
 
 # Create your views here.
 
 def home(request):
-    return render(request, 'HomePage/Index.html')
+    nr_bids = ItemOffer.objects.filter(bidder_id=1, seen=False, accepted=True).count()
+    # nr_bids = 10;
+    return render(request, 'HomePage/Index.html', {"nr_bids": nr_bids})
 
 def search_item(request):
     if request.method == "POST":
@@ -15,3 +17,4 @@ def search_item(request):
                        'items':items})
     else:
         return render(request, 'HomePage/Search_item.html')
+
