@@ -28,15 +28,16 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
       {% if user.is_authenticated %}
-          <div class="form-inline my-2 my-lg-0">
+
           <a href="#">
               <img id="notif-icon" src="{% static "images/bell.svg" %}">
           </a>
           <p id="notif-total">{{nr_bids}}</p>
-          </div>
+          </ul>
 {#        <li><a href="#">Notifications</a></li>#}
+          <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Þú ert loggaður inn <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">LoggedIn <span class="caret"></span></a>
           <ul class="dropdown-menu">
 
             <li><a href="#">Profile</a></li>
@@ -50,7 +51,7 @@
           <li><a href="/sign_in/login">Login</a></li>
           <li><a href="/sign_in/register_user">Register</a></li>
           {% endif %}
-      
+
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
