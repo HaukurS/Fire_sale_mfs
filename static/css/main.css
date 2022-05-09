@@ -18,7 +18,7 @@
 }
 /*footer*/
 .footer-clean {
-  background-color:#fff;
+  background-color:#F93248;
   color:#4b4c4d;
 }
 
@@ -146,11 +146,16 @@ img#logo {
 
 .searchbar{
     padding-top: 180px;
-    padding-left: 500px;
-    padding-right: 500px;
+    padding-left: 30%;
+    padding-right: 30%;
     padding-bottom: 150px;
+    background-color: #F93248;
 }
 div.container-fluid{
     padding-right: 50px;
     padding-left: 50px;
+}
+
+body {
+    background-color: #F93248;
 }
