@@ -109,3 +109,9 @@ def get_user_bids(request):
     user = request.user
     context = {'item_offers': ItemOffer.objects.filter(bidder_id=user.id)}
     return render(request, 'Item/my_bids.html', context)
+
+
+def similar_item(request, id):
+    item_obj = get_object_or_404(pk=id)
+    category = item_obj.category
+    context = {'similar_items': Item.objects.filter(category__name__exact=category)}

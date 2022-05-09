@@ -10,4 +10,5 @@
     <a href="{% url 'update_item' item.id%}" class="block btn-btn primary">Update Item</a>
     <a href="{% url 'bid' item.id%}" class="block btn-btn primary">Place Bid</a>
 </div>
+    {% include 'Item/similar_items.html' %}
 {% endblock %}
