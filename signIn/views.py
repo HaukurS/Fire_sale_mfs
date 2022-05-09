@@ -11,6 +11,8 @@ def register_user(request):
             form.save()
             user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['password1'])
             login(request, user)
+            new_profile = Profile(name = user.username, email = user.email, user_id = user.id)
+            new_profile.save()
             return redirect('homepage')
     else:
         form = UserRegistration()
