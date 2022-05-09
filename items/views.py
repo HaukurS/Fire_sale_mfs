@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from items.forms.item_form import ItemCreateForm, ItemUpdateForm, BidCreateForm
-from items.models import ItemImage, Item, ItemCategory, ItemOffer
+from items.models import ItemImage, Item, ItemCategory, ItemBid
 from Users.models import Profile
 
 # Create your views here.
@@ -40,7 +40,7 @@ def get_items_by_category(request, category):
 
 def create_item(request):
     user = request.user
-    user_obj = Profile.objects.get(id=user.id)   #user_id þegar nyja profile er implementað
+    user_obj = Profile.objects.get(user_id=user.id)   #user_id þegar nyja profile er implementað
     if request.method == 'POST':
         form = ItemCreateForm(data=request.POST)
         if form.is_valid():
@@ -81,7 +81,7 @@ def update_item(request, id):
 
 def place_bid(request, id):
     user = request.user
-    user_obj = Profile.objects.get(id=user.id)   # sama og uppi :)
+    user_obj = Profile.objects.get(user_id=user.id)   # sama og uppi :)
     item_obj = Item.objects.get(id=id)
     if request.method == 'POST':
         form = BidCreateForm(data=request.POST)
@@ -107,7 +107,7 @@ def get_user_items(request):
 
 def get_user_bids(request):
     user = request.user
-    context = {'item_offers': ItemOffer.objects.filter(bidder_id=user.id)}
+    context = {'item_offers': ItemBid.objects.filter(bidder_id=user.id)}
     return render(request, 'Item/my_bids.html', context)
 
 
