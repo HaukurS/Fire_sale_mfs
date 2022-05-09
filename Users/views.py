@@ -9,7 +9,8 @@ def index(request):
     return render(request, 'User/Index.html')
 
 
-def show_profile(request, id):
+def show_profile(request):
+    id = request.user.id
     profile_obj = Profile.objects.get(user_id=id)
     context = {
         'user': profile_obj
