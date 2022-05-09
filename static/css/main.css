@@ -19,7 +19,7 @@
 /*footer*/
 .footer-clean {
   background-color:#F93248;
-  color:#4b4c4d;
+  color: white;
 }
 
 .container {
@@ -158,4 +158,8 @@ div.container-fluid{
 
 body {
     background-color: #F93248;
+}
+
+.navbar-default .navbar-nav>li>a{
+    color: #F93248;
 }
