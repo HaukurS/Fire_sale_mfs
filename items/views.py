@@ -103,13 +103,13 @@ def place_bid(request, id):
         'id': id
     })
 
-
+@login_required
 def get_user_items(request):
     user = request.user
     context = {'items': Item.objects.filter(owner_id=user.id)}
     return render(request, 'Item/my_items.html', context)
 
-
+@login_required
 def get_user_bids(request):
     user = request.user
     context = {'item_offers': ItemBid.objects.filter(bidder_id=user.id)}
