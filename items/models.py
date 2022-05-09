@@ -20,6 +20,7 @@ class Item(models.Model):
     category = models.ForeignKey(ItemCategory, on_delete=models.CASCADE)
     price = models.FloatField()
     owner = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True)
+
     def __str__(self):
         return self.name
 
