@@ -25,8 +25,11 @@ def orderpricelow(request):
 
 
 def get_item_by_id(request, id):
+    item_obj = get_object_or_404(Item, pk=id)
+    category = item_obj.category
     return render(request, 'Item/item_details.html', {
-        'item': get_object_or_404(Item, pk=id)
+        'item': item_obj,
+        'similar_item': Item.objects.filter(category__name__exact=category)
     })
 
 
@@ -110,8 +113,3 @@ def get_user_bids(request):
     context = {'item_offers': ItemBid.objects.filter(bidder_id=user.id)}
     return render(request, 'Item/my_bids.html', context)
 
-
-def similar_item(request, id):
-    item_obj = get_object_or_404(pk=id)
-    category = item_obj.category
-    context = {'similar_items': Item.objects.filter(category__name__exact=category)}

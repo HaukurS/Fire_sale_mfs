@@ -27,3 +27,6 @@ class Profile(models.Model):
         return self.name
 
 
+user = Profile
+
+
