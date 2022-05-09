@@ -18,9 +18,12 @@
 }
 /*footer*/
 .footer-clean {
-  padding-top: 20px;
   background-color:#fff;
   color:#4b4c4d;
+}
+
+.container {
+    padding-top: 10%;
 }
 
 .footer-clean h3 {
@@ -139,4 +142,15 @@ img#logo {
 
 .navbar-brand{
     padding: 10px;
+}
+
+.searchbar{
+    padding-top: 180px;
+    padding-left: 500px;
+    padding-right: 500px;
+    padding-bottom: 150px;
+}
+div.container-fluid{
+    padding-right: 50px;
+    padding-left: 50px;
 }
