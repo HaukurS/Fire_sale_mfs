@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 
 # Create your views here.
-from Users.models import User
+from Users.models import Profile
 from checkout.form.checkout_form1 import ContactCreateForm
 from checkout.form.checkout_form2 import PaymentInfoCreateForm
 from checkout.models import PaymentInfo
@@ -37,7 +37,7 @@ def create_contactinfo(request):
 
 def review_checkout(request):
     payment_info = PaymentInfo.objects.last()
-    contact_info = User.objects.last()
+    contact_info = Profile.objects.last()
     return render(request, 'Checkout/review.html', {
         'contact_info': contact_info,
         'payment_info': payment_info
