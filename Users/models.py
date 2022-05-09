@@ -11,7 +11,7 @@ class Country(models.Model):
         return self.name
 
 
-class User(models.Model):
+class Profile(models.Model):
     #user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     password = models.CharField(max_length=255)
