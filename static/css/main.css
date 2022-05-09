@@ -1,8 +1,3 @@
-.clown {
-    background-color: red;
-    border: solid 2px black;
-}
-
 .item-block{
       display:inline-block;
       width: 30%;
@@ -23,7 +18,7 @@
 }
 /*footer*/
 .footer-clean {
-  padding:50px 0;
+  padding-top: 20px;
   background-color:#fff;
   color:#4b4c4d;
 }
@@ -53,18 +48,18 @@
   text-align:right;
 }
 
-@media (max-width:767px) {
-  .footer-clean .item {
-    text-align:center;
-    padding-bottom:20px;
-  }
-}
+/*@media (max-width:767px) {*/
+/*  .footer-clean .item {*/
+/*    text-align:center;*/
+/*    padding-bottom:20px;*/
+/*  }*/
+/*}*/
 
-@media (max-width: 768px) {
-  .footer-clean .item.social {
-    text-align:center;
-  }
-}
+/*@media (max-width: 768px) {*/
+/*  .footer-clean .item.social {*/
+/*    text-align:center;*/
+/*  }*/
+/*}*/
 
 .footer-clean .item.social > image {
   font-size:24px;
@@ -113,8 +108,9 @@
 }
 
 #notif-icon{
-    width: 25px;
+    width: 30px;
     display: inline-block;
+    padding-top: 5px;
     /*margin-left: 15px;*/
 }
 
@@ -133,4 +129,14 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+img#logo {
+    width: 40px;
+    height: 40px;
+    /*padding: 10px;*/
+}
+
+.navbar-brand{
+    padding: 10px;
 }
