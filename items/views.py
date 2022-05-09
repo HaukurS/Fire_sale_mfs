@@ -27,9 +27,10 @@ def orderpricelow(request):
 def get_item_by_id(request, id):
     item_obj = get_object_or_404(Item, pk=id)
     category = item_obj.category
+    similar_items = Item.objects.all().filter(category__name__exact=category).exclude(pk=id)
     return render(request, 'Item/item_details.html', {
         'item': item_obj,
-        'similar_item': Item.objects.filter(category__name__exact=category)
+        'similar_items': similar_items
     })
 
 

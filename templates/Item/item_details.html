@@ -11,6 +11,7 @@
     <a href="{% url 'bid' item.id%}" class="block btn-btn primary">Place Bid</a>
 </div>
 <div class="items">
+    <h1>Similar Items</h1>
     {% for item in similar_items %}
         {% include 'Item/single_item.html' with item=item %}
     {% endfor %}
