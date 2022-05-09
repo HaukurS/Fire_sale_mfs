@@ -5,6 +5,8 @@ from Users.models import Profile
 from django.contrib.auth.models import User
 
 def register_user(request):
+    if request.user.is_authenticated:
+        return redirect('homepage')
     if request.method == 'POST':
         form = UserRegistration(data=request.POST)
         if form.is_valid():
