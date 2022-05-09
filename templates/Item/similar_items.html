@@ -1,0 +1,5 @@
+<div>
+    {% for item in similar_items %}
+        {% include 'Item/single_item.html' with item=item %}
+    {% endfor %}
+</div>
