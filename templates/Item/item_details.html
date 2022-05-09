@@ -13,6 +13,7 @@
     {% endif %}
 </div>
 <div class="items">
+    <h1>Similar Items</h1>
     {% for item in similar_items %}
         {% include 'Item/single_item.html' with item=item %}
     {% endfor %}
