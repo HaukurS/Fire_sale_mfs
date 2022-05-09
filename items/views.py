@@ -40,7 +40,7 @@ def get_items_by_category(request, category):
 
 def create_item(request):
     user = request.user
-    user_obj = Profile.objects.get(user_id=user.id)
+    user_obj = Profile.objects.get(id=user.id)   #user_id þegar nyja profile er implementað
     if request.method == 'POST':
         form = ItemCreateForm(data=request.POST)
         if form.is_valid():
@@ -81,7 +81,7 @@ def update_item(request, id):
 
 def place_bid(request, id):
     user = request.user
-    user_obj = Profile.objects.get(user_id=user.id)
+    user_obj = Profile.objects.get(id=user.id)   # sama og uppi :)
     item_obj = Item.objects.get(id=id)
     if request.method == 'POST':
         form = BidCreateForm(data=request.POST)

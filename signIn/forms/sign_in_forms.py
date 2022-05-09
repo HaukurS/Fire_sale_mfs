@@ -1,5 +1,5 @@
-from django.forms import ModelForm, widgets
-#from Users.models import User
+#from django.forms import ModelForm, widgets
+from Users.models import Profile
 from django.contrib.auth.models import User
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
