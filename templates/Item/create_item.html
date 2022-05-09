@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+
     <form class="form form-horizontal" action=" {% url 'create_item' %} " method ="post">
         {% csrf_token %}
         {{ form }}

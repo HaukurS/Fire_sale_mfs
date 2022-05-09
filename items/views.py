@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from items.forms.item_form import ItemCreateForm, ItemUpdateForm, BidCreateForm
 from items.models import ItemImage, Item, ItemCategory, ItemBid
 from Users.models import Profile
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -41,7 +42,7 @@ def get_items_by_category(request, category):
     #context = {'items': Item.objects.filter(category__item__name=category)}
     #return render(request, 'Item/Index.html', context)
 
-
+@login_required
 def create_item(request):
     user = request.user
     user_obj = Profile.objects.get(user_id=user.id)   #user_id þegar nyja profile er implementað
@@ -61,13 +62,13 @@ def create_item(request):
         'form': form
     })
 
-
+@login_required
 def delete_item(request, id):
     item = get_object_or_404(Item, pk=id)
     item.delete()
     return redirect('index')
 
-
+@login_required
 def update_item(request, id):
     instance = get_object_or_404(Item, pk=id)
     if request.method == 'POST':
@@ -82,7 +83,7 @@ def update_item(request, id):
         'id': id
     })
 
-
+@login_required
 def place_bid(request, id):
     user = request.user
     user_obj = Profile.objects.get(user_id=user.id)   # sama og uppi :)
