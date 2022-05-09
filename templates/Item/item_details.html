@@ -10,5 +10,9 @@
     <a href="{% url 'update_item' item.id%}" class="block btn-btn primary">Update Item</a>
     <a href="{% url 'bid' item.id%}" class="block btn-btn primary">Place Bid</a>
 </div>
-    {% include 'Item/similar_items.html' %}
+<div class="items">
+    {% for item in similar_items %}
+        {% include 'Item/single_item.html' with item=item %}
+    {% endfor %}
+</div>
 {% endblock %}
