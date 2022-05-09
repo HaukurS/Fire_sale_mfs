@@ -1,11 +1,11 @@
 from django.forms import ModelForm, widgets
 
-from Users.models import User
+from Users.models import Profile
 
 
 class ContactCreateForm(ModelForm):
     class Meta:
-        model = User
+        model = Profile
         exclude = ['id', 'description', 'bio', 'password', 'email', 'phone_number']
         widgets = {
             'name': widgets.TextInput(attrs={'class': 'form-control'}),

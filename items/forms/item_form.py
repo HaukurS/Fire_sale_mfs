@@ -1,6 +1,6 @@
 from django.forms import ModelForm, widgets
 from items.models import Item
-from items.models import ItemOffer
+from items.models import ItemBid
 from django import forms
 
 
@@ -33,7 +33,7 @@ class ItemCreateForm(ModelForm):
 
 class BidCreateForm(ModelForm):
     class Meta:
-        model = ItemOffer
+        model = ItemBid
         exclude = ['id', 'item', 'bidder', 'seen', 'accepted']
         widgets = {
             'item_price': widgets.NumberInput(attrs={'class': 'form-control'})

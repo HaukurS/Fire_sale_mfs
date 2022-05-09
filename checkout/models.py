@@ -1,5 +1,5 @@
 from django.db import models
-from Users.models import User
+from Users.models import Profile
 
 
 class PaymentInfo(models.Model):
