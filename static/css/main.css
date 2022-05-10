@@ -98,8 +98,15 @@
 .bidding {
     text-align: center;
 
-}
 
+}
+.register {
+    text-align: center;
+    padding-bottom: 20px;
+
+
+
+}
 .amount {
     display: inline-block;
     border: 1px black;
@@ -175,6 +182,12 @@ body {
 
 .form-horizontal{
     width: 600px;
+    display: block;
+    margin : 0 auto;
+    padding-bottom: 20px;
+}
+.btn-primary{
+    width: 100px;
     display: block;
     margin : 0 auto
 }
