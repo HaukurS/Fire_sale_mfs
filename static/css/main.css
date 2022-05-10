@@ -51,19 +51,6 @@
   text-align:right;
 }
 
-/*@media (max-width:767px) {*/
-/*  .footer-clean .item {*/
-/*    text-align:center;*/
-/*    padding-bottom:20px;*/
-/*  }*/
-/*}*/
-
-/*@media (max-width: 768px) {*/
-/*  .footer-clean .item.social {*/
-/*    text-align:center;*/
-/*  }*/
-/*}*/
-
 .footer-clean .item.social > image {
   font-size:24px;
   width:40px;
@@ -114,7 +101,7 @@
     width: 30px;
     display: inline-block;
     padding-top: 5px;
-    /*margin-left: 15px;*/
+    color: #F93248;
 }
 
 #notif-total{
@@ -162,4 +149,14 @@ body {
 
 .navbar-default .navbar-nav>li>a{
     color: #F93248;
+    font-size: larger;
+    font-weight: 800;
+    padding-top: 23px;
 }
+
+.form-control{
+    height: 55px;
+    border-radius: 25px;
+    font-size: x-large;
+}
+
