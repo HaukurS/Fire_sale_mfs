@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
 
 from Users.form.user_form import ProfileUpdateForm
 from Users.models import Profile, ProfileImage
@@ -7,7 +8,7 @@ from Users.models import Profile, ProfileImage
 def index(request):
     return render(request, 'User/Index.html')
 
-
+@login_required
 def show_profile(request):
     id = request.user.id
     profile_obj = Profile.objects.get(user_id=id)
@@ -16,7 +17,7 @@ def show_profile(request):
     }
     return render(request, 'User/Profile.html', context)
 
-
+@login_required
 def update_profile(request):
     id = request.user.id
     instance = get_object_or_404(Profile, user_id=id)

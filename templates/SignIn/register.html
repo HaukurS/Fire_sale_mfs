@@ -1,8 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
  <form class="form form-horizontal" action=" {% url 'register_user' %} " method ="post">
+    <div class="register">
         {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="Create" class="btn btn-primary pull-right" style="clear: both; margin: 10px 0"/>
+     <h4>{{form.username.label}}</h4>
+        {{form.username}}
+        <h4>{{form.email.label}}</h4>
+        {{form.email}}
+        <h4>{{form.password1.label}}</h4>
+        {{form.password1}}
+        <h4>{{form.password2.label}}</h4>
+        {{form.password2}}
+    </div>
+     <input type="submit" value="Create" class="btn btn-primary"/>
  </form>
+
 {% endblock %}
