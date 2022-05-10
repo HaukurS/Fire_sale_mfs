@@ -1,8 +1,10 @@
 from django.forms import ModelForm, widgets
 from Users.models import Profile
+from django import forms
 
 
 class ProfileUpdateForm(ModelForm):
+    image = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
     class Meta():
         model = Profile
         exclude = ['id', 'user', 'password']
