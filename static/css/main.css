@@ -160,3 +160,7 @@ body {
     font-size: x-large;
 }
 
+.dropdown-menu>li>a{
+    font-weight: bold;
+    padding: 20px;
+}
