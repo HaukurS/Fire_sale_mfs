@@ -1,0 +1,8 @@
+{% extends 'Base.html' %}
+{% block content %}
+    <div class="items">
+        {% for notification in notifications %}
+            {% include 'Notification/single_notification.html' with notification=notification %}
+        {% endfor %}
+    </div>
+{% endblock %}

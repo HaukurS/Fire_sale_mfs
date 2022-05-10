@@ -176,5 +176,7 @@ body {
 }
 
 .form-horizontal{
-    padding: 500px;
+    width: 600px;
+    display: block;
+    margin : 0 auto
 }
