@@ -1,14 +1,23 @@
 {% extends "Base.html" %}
 {% block content %}
 <div class="bidding">
-    <h1>{{ user1.name }}</h1>
+<div class="profile-block">
+    <div Class="bio-block">
+        <p>Bio: {{ user1.bio }}</p>
+    </div>
+    <div Class="info-block">
+    <h1>My account</h1>
+    <p>{{ user1.name }}<p>
     <p>Email: {{ user1.email }}</p>
-    <p>Bio: {{ user1.bio }}</p>
     <p>Phone Number: {{ user1.phone_number }}</p>
     <p>Street Name: {{ user1.street_name }}</p>
     <p>City: {{ user1.city }}</p>
     <p>Country: {{ user1.country }}</p>
     <a href="{% url 'update_profile' %}">Update Profile</a>
+
+    </div>
+</div>
+</div>
 </div>
 
 {% endblock %}

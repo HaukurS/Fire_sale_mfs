@@ -14,7 +14,45 @@
     font-weight: bold;
     font-size:small;
 }
+.profile-block{
+    display:inline-block;
+    width: 75%;
+    height: 80%;
+    background-color: white;
+    margin-top: 30px;
+    margin-left: -5px;
+    margin-right: -2px;
+    padding-left: 50px;
+    padding-top: 15px;
+    padding-right: 50px;
+    padding-bottom: 15px;
+    margin-bottom:-5px;
 
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size:small;
+}
+.bio-block{
+    width: 45%;
+    float: left;
+    display:inline-block;
+    height: 80%;
+    padding-right: 20px;
+}
+.info-block{
+    width: 35%;
+    height: 450px;
+    float: right;
+    display:inline-block;
+    background-color: #F93248;
+    font-size: medium;
+    color: white;
+    font-weight: bolder;
+
+
+
+
+}
 .items{
     padding: 15%;
 }
