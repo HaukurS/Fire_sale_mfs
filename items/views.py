@@ -86,13 +86,13 @@ def update_item(request, id):
 @login_required
 def place_bid(request, id):
     user = request.user
-    user_obj = Profile.objects.get(user_id=user.id)   # sama og uppi :)
+    profile_obj = Profile.objects.get(user_id=user.id)   # sama og uppi :)
     item_obj = Item.objects.get(id=id)
     if request.method == 'POST':
         form = BidCreateForm(data=request.POST)
         if form.is_valid():
             item_bid = form.save(commit=False)
-            item_bid.bidder = user_obj
+            item_bid.bidder = profile_obj
             item_bid.item = item_obj
             item_bid.save()
             return redirect('item_details', id=id)
