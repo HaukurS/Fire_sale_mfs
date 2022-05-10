@@ -112,6 +112,15 @@ def get_user_items(request):
 @login_required
 def get_user_bids(request):
     user = request.user
-    context = {'item_offers': ItemBid.objects.filter(bidder_id=user.id)}
+    context = {'item_offers': ItemBid.objects.filter(bidder_id=user.id),
+               'items': Item.objects.all().order_by('name')}
     return render(request, 'Item/my_bids.html', context)
+
+
+@login_required
+def get_user_offers(request):
+    user = request.user
+    context = {'item_your_offers': ItemBid.objects.filter(bidder_id=user.id),
+               'items': Item.objects.all().order_by('name')}
+    return render(request, 'Item/my_offers.html', context)
 

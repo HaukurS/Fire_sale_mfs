@@ -5,6 +5,7 @@ from . import views
 urlpatterns = [
     # localhost:8000/items
     path('my_bids', views.get_user_bids, name='my_bids'),
+    path('offers_your_items', views.get_user_offers, name='my_offers'),
     path('my_items', views.get_user_items, name='my_items'),
     path('filter_price_high', views.orderpricehigh, name="orderpricehigh"),
     path('filter_price_low', views.orderpricelow, name="orderpricelow"),

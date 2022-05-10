@@ -3,7 +3,8 @@
         <p>Price: {{ item_offer.item_price }}</p>
         {% for item in items %}
             {% if item.id == item_offer.item_id %}
-                <p>Owner: {{ item.owner }}</p>
+                {% if item.ownerid == item_offer %}
+                    {% endif %}
             {% endif %}
         {% endfor %}
 </div>
