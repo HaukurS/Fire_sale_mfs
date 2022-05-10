@@ -49,9 +49,19 @@
     font-weight: bolder;
 
 
-
-
 }
+.profile-pic {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+    display:inline-block;
+  vertical-align:middle;
+}
+.profile-pic img{
+  width:100%;
+}
+
 .items{
     padding-top: 15%;
     padding-right: 8%;
