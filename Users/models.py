@@ -16,6 +16,7 @@ class Profile(models.Model):
     name = models.CharField(max_length=255)
     password = models.CharField(max_length=255)
     email = models.CharField(max_length=255)
+    profile_image = models.CharField(max_length=9999, blank=True)
     bio = models.CharField(max_length=9999, blank=True, null=True)
     street_name = models.CharField(max_length=999, blank=True, null=True)
     phone_number = models.CharField(max_length=255, blank=True, null=True)
