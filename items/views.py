@@ -138,14 +138,11 @@ def get_user_offers(request):
 
 def accept_offer(request, id):
     user = request.user
-    item_offer_obj = ItemBid.objects.get(id=id)
-    if request.method == 'POST':
-        form = BidCreateForm(instance=item_offer_obj)
-        if form.is_valid():
-            item_offer = form.save(commit=False)
-            item_offer.accepted = True
-            item_offer.save()
-            return redirect('my_offers')
-    else:
-        form = BidCreateForm()
+    instance = ItemBid.objects.get(id=id)
+    if request.method == 'GET':
+        form = BidCreateForm(instance=instance)
+        item_offer = form.save(commit=False)
+        item_offer.accepted = True
+        item_offer.save()
+        return redirect('my_offers')
     return redirect('my_offers')
