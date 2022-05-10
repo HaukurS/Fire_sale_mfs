@@ -2,8 +2,7 @@
     <a href="/items/{{ item.id }}">
         <img class="item_img" src="{{ item.itemimage_set.first.image }}"/>
         <div id="item-diviant">
-            <h4>Name: {{ item.name }}</h4>
-            <p>Category: {{ item.category }}</p>
+            <h4>{{ item.name }}</h4>
             <p>Price: {{ item.price }}</p>
         </div>
     </a>
