@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'items.apps.ItemsConfig',
     'Users.apps.UsersConfig',
     'checkout.apps.CheckoutConfig',
-    'signIn.apps.SigninConfig'
+    'signIn.apps.SigninConfig',
+    'notifications.apps.NotificationsConfig'
     ]
 
 MIDDLEWARE = [
