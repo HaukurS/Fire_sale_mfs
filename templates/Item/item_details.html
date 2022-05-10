@@ -5,6 +5,7 @@
     <p>{{ item.description }}</p>
     <p>{{ item.condition }}</p>
     <p>${{ item.price }}</p>
+    <p>Highest bid: {{ Highest_bid }}</p>
     <p>Owner:  {{ item.owner.name }}</p>
     {% if user.is_authenticated and user.id == item.owner_id %}
     <a href="{% url 'delete_item' item.id%}" class="block btn-btn primary">Delete Item</a>
