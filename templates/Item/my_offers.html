@@ -2,8 +2,8 @@
 {% block content %}
 <h2 class="red">Your Offers</h2>
     <div class="items">
-        {% for item_offer in item_offers %}
-            {% include 'Item/single_offer_pending.html.html' with item_offer=item_offer %}
+        {% for item_offer in item_your_offers %}
+            {% include 'Item/single_offer_pending.html' with item_offer=item_offer %}
         {% endfor %}
     </div>
 {% endblock %}
