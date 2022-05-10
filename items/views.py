@@ -5,6 +5,8 @@ from items.models import ItemImage, Item, ItemCategory, ItemBid
 from Users.models import Profile
 from django.contrib.auth.decorators import login_required
 from django.db.models import Max
+from core.services.notification_creater import create_notification
+from notifications.models import Type
 
 # Create your views here.
 
@@ -104,6 +106,7 @@ def place_bid(request, id):
             item_bid.item = item_obj
             item_bid.owner = owner_obj
             item_bid.save()
+            some = create_notification(get_object_or_404(Type, name='New Bid'), ItemBid.objects.last(), user)
             return redirect('item_details', id=id)
     else:
         form = BidCreateForm()

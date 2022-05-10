@@ -23,5 +23,6 @@ urlpatterns = [
     path('', include('homepage.urls')),
     path('search_item/', include('homepage.urls')),
     path('sign_in/', include('signIn.urls')),
-    path('checkout/', include('checkout.urls'))
+    path('checkout/', include('checkout.urls')),
+    path('notifications/', include('notifications.urls'))
 ]
