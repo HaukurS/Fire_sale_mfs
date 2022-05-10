@@ -126,3 +126,17 @@ def get_user_offers(request):
     context = {'item_your_offers': ItemBid.objects.filter(owner_id=user.id)}
     return render(request, 'Item/my_offers.html', context)
 
+
+def accept_offer(request, id):
+    user = request.user
+    item_offer_obj = ItemBid.objects.get(id=id)
+    if request.method == 'POST':
+        form = BidCreateForm(instance=item_offer_obj)
+        if form.is_valid():
+            item_offer = form.save(commit=False)
+            item_offer.accepted = True
+            item_offer.save()
+            return redirect('my_offers')
+    else:
+        form = BidCreateForm()
+    return redirect('my_offers')
