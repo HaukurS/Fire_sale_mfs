@@ -8,10 +8,14 @@ from checkout.models import PaymentInfo
 
 
 def create_paymentinfo(request):
+    id = request.user.id
+    profile_obj = get_object_or_404(Profile, user_id=id)
     if request.method == 'POST':
         form = PaymentInfoCreateForm(data=request.POST)
         if form.is_valid():
-            form.save()
+            payment = form.save(commit=False)
+            payment.profile = profile_obj
+            payment.save()
             return redirect('review')
     else:
         form = PaymentInfoCreateForm()
@@ -22,13 +26,16 @@ def create_paymentinfo(request):
 
 
 def create_contactinfo(request):
+    id = request.user.id
+    instance = get_object_or_404(Profile, user_id=id)
     if request.method == 'POST':
         form = ContactCreateForm(data=request.POST)
         if form.is_valid():
-            form.save()
+            contact = form.save(commit=False)
+            contact.user = request.user
             return redirect('step_two')
     else:
-        form = ContactCreateForm()
+        form = ContactCreateForm(instance=instance)
         # TODO: Instance new ItemCreateForm()
     return render(request, 'Checkout/step_one.html', {
         'form': form

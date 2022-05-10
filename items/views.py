@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, get_object_or_404
 from items.forms.item_form import ItemCreateForm, ItemUpdateForm, BidCreateForm
 from items.models import ItemImage, Item, ItemCategory, ItemBid
@@ -92,14 +93,16 @@ def update_item(request, id):
 @login_required
 def place_bid(request, id):
     user = request.user
-    user_obj = Profile.objects.get(user_id=user.id)   # sama og uppi :)
+    profile_obj = Profile.objects.get(user_id=user.id)   # sama og uppi :)
     item_obj = Item.objects.get(id=id)
+    owner_obj = get_object_or_404(User, pk=item_obj.owner_id)
     if request.method == 'POST':
         form = BidCreateForm(data=request.POST)
         if form.is_valid():
             item_bid = form.save(commit=False)
-            item_bid.bidder = user_obj
+            item_bid.bidder = profile_obj
             item_bid.item = item_obj
+            item_bid.owner = owner_obj
             item_bid.save()
             return redirect('item_details', id=id)
     else:
@@ -118,12 +121,15 @@ def get_user_items(request):
 @login_required
 def get_user_bids(request):
     user = request.user
-    context = {'item_offers': ItemBid.objects.filter(bidder_id=user.id)}
+    context = {'item_offers': ItemBid.objects.filter(bidder_id=user.id),
+               'items': Item.objects.all().order_by('name')}
     return render(request, 'Item/my_bids.html', context)
 
-#def get_user_offers(request):
-    #user = request.user
 
-    #contect = {'user_offers': ItemBid.objects.filter(item.owner_id=user.id)
-           #    }
+@login_required
+def get_user_offers(request):
+    user = request.user
+    context = {'item_your_offers': ItemBid.objects.filter(owner_id=user.id)}
+    return render(request, 'Item/my_offers.html', context)
+
 
