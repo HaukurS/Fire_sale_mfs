@@ -136,3 +136,15 @@ def get_user_offers(request):
     return render(request, 'Item/my_offers.html', context)
 
 
+def accept_offer(request, id):
+    user = request.user
+    instance = ItemBid.objects.get(id=id)
+    item_obj = instance.item
+    if request.method == 'GET':
+        form = BidCreateForm(instance=instance)
+        item_offer = form.save(commit=False)
+        item_offer.accepted = True
+        item_offer.save()
+        create_notification(get_object_or_404(Type, name='Accepted'), instance, instance.bidder.user)
+        return redirect('my_offers')
+    return redirect('my_offers')

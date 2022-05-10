@@ -2,4 +2,14 @@
         <p>Item: {{ item_offer.item }}</p>
         <p>Price: {{ item_offer.item_price }}</p>
         <p>Bidder: {{ item_offer.bidder }}</p>
+        <p>Accepted: {{ item_offer.accepted }}</p>
+        <button class="Accept" onclick="myFunction('{{ item_offer.id }}')">Accept Offer</button>
+        <button class="Reject">Reject Offer</button>
+
 </div>
+<script>
+function myFunction(itemid) {
+    window.location = 'accepted/' + itemid
+}
+</script>
+
