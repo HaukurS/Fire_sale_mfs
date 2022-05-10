@@ -27,6 +27,10 @@ class Profile(models.Model):
         return self.name
 
 
-user = Profile
+class ProfileImage(models.Model):
+    image = models.CharField(max_length=255)
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+
+
 
 

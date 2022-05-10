@@ -6,7 +6,7 @@ from Users.models import Profile
 class ContactCreateForm(ModelForm):
     class Meta:
         model = Profile
-        exclude = ['id', 'description', 'bio', 'password', 'email', 'phone_number']
+        exclude = ['id', 'bio', 'password', 'email', 'phone_number', 'user']
         widgets = {
             'name': widgets.TextInput(attrs={'class': 'form-control'}),
             'street_name': widgets.TextInput(attrs={'class': 'form-control'}),
