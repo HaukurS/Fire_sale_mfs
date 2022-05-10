@@ -3,6 +3,7 @@ from django.forms import ModelForm, widgets
 
 
 class PaymentInfoCreateForm(ModelForm):
+    cvc = widgets.NumberInput(attrs={'class': 'form-control'})
     class Meta:
         model = PaymentInfo
         exclude = ['id', 'profile']

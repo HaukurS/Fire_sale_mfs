@@ -8,10 +8,14 @@ from checkout.models import PaymentInfo
 
 
 def create_paymentinfo(request):
+    id = request.user.id
+    profile_obj = get_object_or_404(Profile, user_id=id)
     if request.method == 'POST':
         form = PaymentInfoCreateForm(data=request.POST)
         if form.is_valid():
-            form.save()
+            payment = form.save(commit=False)
+            payment.profile = profile_obj
+            payment.save()
             return redirect('review')
     else:
         form = PaymentInfoCreateForm()
