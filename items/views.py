@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, get_object_or_404
 from items.forms.item_form import ItemCreateForm, ItemUpdateForm, BidCreateForm
 from items.models import ItemImage, Item, ItemCategory, ItemBid
@@ -88,12 +89,14 @@ def place_bid(request, id):
     user = request.user
     profile_obj = Profile.objects.get(user_id=user.id)   # sama og uppi :)
     item_obj = Item.objects.get(id=id)
+    owner_obj = get_object_or_404(User, pk=item_obj.owner_id)
     if request.method == 'POST':
         form = BidCreateForm(data=request.POST)
         if form.is_valid():
             item_bid = form.save(commit=False)
             item_bid.bidder = profile_obj
             item_bid.item = item_obj
+            item_bid.owner = owner_obj
             item_bid.save()
             return redirect('item_details', id=id)
     else:

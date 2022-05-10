@@ -35,6 +35,7 @@ class ItemImage(models.Model):
 
 class ItemBid(models.Model):
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     item_price = models.FloatField()
     bidder = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True)
     seen = models.BooleanField(default=False)
