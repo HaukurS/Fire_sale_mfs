@@ -106,7 +106,7 @@ def place_bid(request, id):
             item_bid.item = item_obj
             item_bid.owner = owner_obj
             item_bid.save()
-            some = create_notification(get_object_or_404(Type, name='New Bid'), ItemBid.objects.last(), user)
+            some = create_notification(get_object_or_404(Type, name='New Bid'), ItemBid.objects.last(), item_obj.owner.user)
             return redirect('item_details', id=id)
     else:
         form = BidCreateForm()
