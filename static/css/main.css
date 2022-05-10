@@ -61,6 +61,16 @@
 .profile-pic img{
   width:100%;
 }
+.item_img {
+  width: 200px;
+  height: 200px;
+
+    display:inline-block;
+  vertical-align:middle;
+}
+.item_img img{
+  width:100%;
+}
 
 .items{
     padding-top: 15%;
