@@ -3,10 +3,10 @@
 <div class="bidding">
 <div class="profile-block">
     <div Class="bio-block">
-
             <img class="profile-pic" src="{{ user1.profile_image }}"/>
         <p></p>
-        <p>Bio: {{ user1.bio }}</p>
+        <h1>Bio</h1>
+        <p>{{ user1.bio }}</p>
     </div>
     <div Class="info-block">
     <h1>My account</h1>
@@ -17,7 +17,6 @@
     <p>City: {{ user1.city }}</p>
     <p>Country: {{ user1.country }}</p>
     <a href="{% url 'update_profile' %}">Update Profile</a>
-
     </div>
 </div>
 </div>
