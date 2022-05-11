@@ -102,6 +102,13 @@
   vertical-align:middle;
 
 }
+.cat-order {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    display: inline-block;
+}
 .profile-pic img{
   width:100%;
 }
