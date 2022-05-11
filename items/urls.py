@@ -6,6 +6,7 @@ urlpatterns = [
     # localhost:8000/items
     path('delete_bid/<int:id>', views.delete_bid, name='delete_bid'),
     path('my_bids', views.get_user_bids, name='my_bids'),
+    path('rejected/<int:id>', views.delete_offer, name='delete_offer'),
     path('offers_your_items', views.get_user_offers, name='my_offers'),
     path('accepted/<int:id>', views.accept_offer, name='accept_offer'),
     path('my_items', views.get_user_items, name='my_items'),
