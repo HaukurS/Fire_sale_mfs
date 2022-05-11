@@ -88,15 +88,12 @@
 }
 .item_img {
     display: block;
-    width: 230px;
-    height: 230px;
+    width: 80%;
+    height: 50%;
     border-radius: 40px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 50px;
-}
-.item_img img{
-    width:100%;
 }
 
 .items{
