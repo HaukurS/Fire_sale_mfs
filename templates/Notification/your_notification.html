@@ -1,6 +1,6 @@
 {% extends 'Base.html' %}
 {% block content %}
-    <div class="items">
+    <div class="notif-container">
         {% for notification in notifications %}
             {% include 'Notification/single_notification.html' with notification=notification %}
         {% endfor %}
