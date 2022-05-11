@@ -98,7 +98,6 @@
 }
 
 .items{
-    padding-top: 15%;
     padding-right: 8%;
     padding-left: 8%;
     text-align: center;
@@ -112,6 +111,7 @@
     background-color: white;
     border-radius: 50px;
 }
+
 
 #item-diviant>h4{
     font-weight: bold;
