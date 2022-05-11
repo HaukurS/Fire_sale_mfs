@@ -77,6 +77,7 @@ def delete_item(request, id):
     item.delete()
     return redirect('index')
 
+
 @login_required
 def update_item(request, id):
     instance = get_object_or_404(Item, pk=id)
@@ -147,7 +148,7 @@ def get_user_offers(request):
     context = {'item_your_offers': ItemBid.objects.filter(owner_id=user.id)}
     return render(request, 'Item/my_offers.html', context)
 
-
+@login_required
 def accept_offer(request, id):
     instance = ItemBid.objects.get(id=id)
     item_obj = instance.item
