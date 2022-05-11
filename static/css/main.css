@@ -35,7 +35,24 @@
   transition: transform .3s ease;
     border-radius: 40px;
 }
-
+.users-bids-block {
+    display: inline-block;
+    width: 23%;
+    height: 200px;
+    background-color: white;
+    border-bottom: 2px white solid;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    margin: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: small;
+    vertical-align: top;
+    border-radius: 40px;
+    position: relative;
+}
 .profile-block{
     display:inline-block;
     width: 75%;
