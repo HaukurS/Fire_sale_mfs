@@ -15,7 +15,6 @@ class Type(models.Model):
 class Notification(models.Model):
     type = models.ForeignKey(Type, on_delete=models.CASCADE)
     item_bid = models.ForeignKey(ItemBid, on_delete=models.CASCADE)
-    seen = models.BooleanField(default=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
