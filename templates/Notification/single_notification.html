@@ -1,4 +1,4 @@
 <div class="item-block">
     <p>{{ notification.type.name }}</p>
-    <a href="/items/offers_your_items">Go</a>
+    <a href="{% url 'delete' notification.id %}">Delete</a>
 </div>
