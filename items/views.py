@@ -115,6 +115,13 @@ def place_bid(request, id):
         'id': id
     })
 
+
+def delete_bid(request, id):
+    item_bid = get_object_or_404(ItemBid, id=id)
+    item_bid.delete()
+    return redirect('my_bids')
+
+
 @login_required
 def get_user_items(request):
     user = request.user
@@ -145,6 +152,7 @@ def accept_offer(request, id):
         item_offer = form.save(commit=False)
         item_offer.accepted = True
         item_offer.save()
+        create_notification(get_object_or_404(Type, name='Accepted'), instance, instance.bidder.user)
         create_notification(get_object_or_404(Type, name='Accepted'), instance, instance.bidder.user)
         return redirect('my_offers')
     return redirect('my_offers')

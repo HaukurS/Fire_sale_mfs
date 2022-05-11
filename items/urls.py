@@ -4,6 +4,7 @@ from . import views
 
 urlpatterns = [
     # localhost:8000/items
+    path('delete_bid/<int:id>', views.delete_bid, name='delete_bid'),
     path('my_bids', views.get_user_bids, name='my_bids'),
     path('offers_your_items', views.get_user_offers, name='my_offers'),
     path('accepted/<int:id>', views.accept_offer, name='accept_offer'),
@@ -17,6 +18,4 @@ urlpatterns = [
     path('<str:category>', views.get_items_by_category, name='filter_items'),
     path('update_item/<int:id>', views.update_item, name='update_item'),
     path('bid/<int:id>', views.place_bid, name='bid')
-
-
 ]
