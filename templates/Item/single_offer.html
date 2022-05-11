@@ -1,5 +1,5 @@
-<div class="item-block">
-    <p>Item: {{ item_offer.item }}</p>
+<div class="offers-n-bids-block">
+    <h1>{{ item_offer.item }}</h1>
     <p>Price: {{ item_offer.item_price }}</p>
     {% for item in items %}
         {% if item.id == item_offer.item_id %}
