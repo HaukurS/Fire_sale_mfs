@@ -3,13 +3,22 @@
         <p>Price: {{ item_offer.item_price }}</p>
         <p>Bidder: {{ item_offer.bidder }}</p>
         <p>Accepted: {{ item_offer.accepted }}</p>
-        <button class="Accept" onclick="myFunction('{{ item_offer.id }}')">Accept Offer</button>
-        <button class="Reject">Reject Offer</button>
+        {% if item_offer.accepted == False %}
+            <button class="Accept" onclick="Acceptfunc('{{ item_offer.id }}')">Accept Offer</button>
+            <button class="Reject" onclick="Rejectfunc('{{ item_offer.id }}')">Reject Offer</button>
+            {% else %}
+                <p>Offer has been accepted and awaiting payment</p>
+        {% endif %}
 
 </div>
 <script>
-function myFunction(itemid) {
+function Acceptfunc(itemid) {
     window.location = 'accepted/' + itemid
+}
+</script>
+<script>
+function Rejectfunc(itemid) {
+    window.location = 'rejected/' + itemid
 }
 </script>
 

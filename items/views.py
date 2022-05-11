@@ -121,6 +121,11 @@ def delete_bid(request, id):
     item_bid.delete()
     return redirect('my_bids')
 
+def delete_offer(request, id):
+    item_bid = get_object_or_404(ItemBid, id=id)
+    item_bid.delete()
+    return redirect('my_offers')
+
 
 @login_required
 def get_user_items(request):
