@@ -4,7 +4,7 @@ from django import forms
 
 
 class ProfileUpdateForm(ModelForm):
-    image = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
+
     class Meta():
         model = Profile
         exclude = ['id', 'user', 'password']
@@ -16,5 +16,6 @@ class ProfileUpdateForm(ModelForm):
             'phone_number': widgets.TextInput(attrs={'class': 'form-control'}),
             'city': widgets.TextInput(attrs={'class': 'form-control'}),
             'zip': widgets.NumberInput(attrs={'class': 'form-control'}),
-            'country': widgets.Select(attrs={'class': 'form-control'})
+            'country': widgets.Select(attrs={'class': 'form-control'}),
+            'profile_image': widgets.TextInput(attrs={'class': 'form-control'}),
         }

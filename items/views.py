@@ -54,7 +54,7 @@ def get_items_by_category(request, category):
 @login_required
 def create_item(request):
     user = request.user
-    user_obj = Profile.objects.get(user_id=user.id)   #user_id þegar nyja profile er implementað
+    user_obj = Profile.objects.get(user_id=user.id)
     if request.method == 'POST':
         form = ItemCreateForm(data=request.POST)
         if form.is_valid():
