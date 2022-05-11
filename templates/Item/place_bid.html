@@ -1,3 +1,4 @@
+{% extends 'Base.html' %}
 {% block content %}
 <form class="form form-horizontal" action=" {% url 'bid' id%} " method ="post">
     {% csrf_token %}
