@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
     <h1>Checkout Step 2</h1>
-    <form class="form form-horizontal" action=" {% url 'step_two' %} " method ="post">
+    <form class="form form-horizontal" action=" {% url 'step_two' item.id %} " method ="post">
         {% csrf_token %}
         {{ form }}
-        <input type=button value="Previous Page" onClick="javascript:history.go(-1);">
-        <input type="submit" value="Next" class="btn btn-primary pull-right" style="clear: both; margin: 10px 0"/>
+        <input type=button value="Previous Page" onClick="javascript:history.go(-1);" class="btn btn-primary pull-right" style="clear: both; margin: 10px 0">
+        <input type="submit" value="Next" onClick="javascript:history.go(1);" class="btn btn-primary pull-right" style="clear: both; margin: 10px 0"/>
     </form>
 {% endblock %}

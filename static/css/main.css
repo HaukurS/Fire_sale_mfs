@@ -351,3 +351,15 @@ body {
     height: 35px;
     width: 35px;
 }
+
+.item-detail-cont{
+    height: 600px;
+    width: 80%;
+    background-color: white;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 50px;
+    border-radius: 40px;
+    display: inline-block;
+}
