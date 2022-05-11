@@ -37,7 +37,7 @@
 }
 .offers-n-bids-block {
     display: inline-block;
-    width: 23%;
+    width: 28%;
     height: 250px;
     background-color: white;
     border-bottom: 2px white solid;
@@ -222,6 +222,10 @@
 
 
 
+}
+.red {
+    text-align: center;
+    font-weight: bolder;
 }
 .amount {
     display: inline-block;
