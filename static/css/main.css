@@ -35,10 +35,10 @@
   transition: transform .3s ease;
     border-radius: 40px;
 }
-.users-bids-block {
+.offers-n-bids-block {
     display: inline-block;
     width: 23%;
-    height: 200px;
+    height: 250px;
     background-color: white;
     border-bottom: 2px white solid;
     padding-left: 7px;
