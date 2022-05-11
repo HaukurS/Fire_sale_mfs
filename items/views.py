@@ -151,6 +151,11 @@ def get_user_offers(request):
 def accept_offer(request, id):
     instance = ItemBid.objects.get(id=id)
     item_obj = instance.item
+    all_offers = ItemBid.objects.all()
+    for offer in all_offers:
+        if offer.id != instance.id and offer.item_id == instance.item_id:
+            item_bid = get_object_or_404(ItemBid, id=offer.id)
+            item_bid.delete()
     if request.method == 'GET':
         form = BidCreateForm(instance=instance)
         item_offer = form.save(commit=False)
