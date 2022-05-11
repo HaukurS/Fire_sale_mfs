@@ -5,7 +5,7 @@ from items.models import ItemImage, Item, ItemCategory, ItemBid
 from Users.models import Profile
 from django.contrib.auth.decorators import login_required
 from django.db.models import Max
-from core.services.notification_creater import create_notification
+from core.services.notification_creater import create_notification, send_all_notification
 from notifications.models import Type
 
 # Create your views here.
@@ -144,7 +144,6 @@ def get_user_offers(request):
 
 
 def accept_offer(request, id):
-    user = request.user
     instance = ItemBid.objects.get(id=id)
     item_obj = instance.item
     if request.method == 'GET':
@@ -153,6 +152,7 @@ def accept_offer(request, id):
         item_offer.accepted = True
         item_offer.save()
         create_notification(get_object_or_404(Type, name='Accepted'), instance, instance.bidder.user)
-        create_notification(get_object_or_404(Type, name='Accepted'), instance, instance.bidder.user)
+        bid_set = ItemBid.objects.filter()
+        send_all_notification(get_object_or_404(Type, name='Rejected'), instance, User.objects.all)
         return redirect('my_offers')
     return redirect('my_offers')

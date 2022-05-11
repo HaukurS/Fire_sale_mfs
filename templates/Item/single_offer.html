@@ -6,5 +6,5 @@
             <p>Owner: {{ item.owner }}</p>
         {% endif %}
     {% endfor %}
-    <a href="{% url 'delete_bid' item_offer.id%}">Revert offer</a>
+    <a href="{% url 'delete_bid' item_offer.id%}">Cancel Bid</a>
 </div>
