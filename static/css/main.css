@@ -35,7 +35,24 @@
   transition: transform .3s ease;
     border-radius: 40px;
 }
-
+.offers-n-bids-block {
+    display: inline-block;
+    width: 28%;
+    height: 250px;
+    background-color: white;
+    border-bottom: 2px white solid;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    margin: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: small;
+    vertical-align: top;
+    border-radius: 40px;
+    position: relative;
+}
 .profile-block{
     display:inline-block;
     width: 75%;
@@ -206,6 +223,10 @@
 
 
 }
+.red {
+    text-align: center;
+    font-weight: bolder;
+}
 .amount {
     display: inline-block;
     border: 1px black;
@@ -246,7 +267,7 @@ img#logo {
 }
 
 .searchbar{
-    padding-top: 180px;
+    padding-top: 100px;
     padding-left: 30%;
     padding-right: 30%;
     padding-bottom: 150px;
