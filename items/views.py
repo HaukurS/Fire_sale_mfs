@@ -157,7 +157,12 @@ def accept_offer(request, id):
         item_offer.accepted = True
         item_offer.save()
         create_notification(get_object_or_404(Type, name='Accepted'), instance, instance.bidder.user)
-        bid_set = ItemBid.objects.filter()
-        send_all_notification(get_object_or_404(Type, name='Rejected'), instance, User.objects.all)
+        bid_set = ItemBid.objects.filter(item_id=item_obj.id)
+        user_list = []
+        for bid in bid_set:
+            user_id = bid.bidder.user_id
+            user_obj = User.objects.filter(id=user_id)
+            user_list.append(user_obj)
+        send_all_notification(get_object_or_404(Type, name='Rejected'), instance, user_list)
         return redirect('my_offers')
     return redirect('my_offers')
