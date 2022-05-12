@@ -70,8 +70,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'Fire_sale_mfs.thing_context_processor.notifications',
-                # 'Fire_sale_mfs.thing_context_processor.bids',
+                'Fire_sale_mfs.notify_context_processor.notifications'
             ],
         },
     },

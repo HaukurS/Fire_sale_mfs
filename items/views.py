@@ -175,6 +175,8 @@ def accept_offer(request, id):
     for offer in all_offers:
         if offer.id != instance.id and offer.item_id == instance.item_id:
             item_bid = get_object_or_404(ItemBid, id=offer.id)
+            bid_user = item_bid.bidder.user
+            create_notification('Rejected', item_bid, bid_user)
             item_bid.delete()
     if request.method == 'GET':
         form = BidCreateForm(instance=instance)
@@ -187,14 +189,14 @@ def accept_offer(request, id):
         item_item.accepted = True
         item_item.save()
         create_notification('Accepted', instance, instance.bidder.user)
-        bid_set = ItemBid.objects.filter(item_id=item_obj.id)
-        user_list = []
-        for bid in bid_set:
-            user_id = bid.bidder.user_id
-            if user_id != bidder.user_id:
-                user_obj = User.objects.filter(id=user_id)
-                user_list.append(user_obj)
-        send_all_notification('Rejected', instance, user_list)
+        #bid_set = ItemBid.objects.filter(item_id=item_obj.id)
+        #user_list = []
+        #for bid in bid_set:
+            #user_id = bid.bidder.user_id
+            #if user_id != bidder.user_id:
+                #user_obj = User.objects.filter(id=user_id)
+                #user_list.append(user_obj)
+        #send_all_notification('Rejected', instance, user_list)
         return redirect('my_offers')
     return redirect('my_offers')
 
