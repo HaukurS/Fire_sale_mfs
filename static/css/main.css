@@ -594,5 +594,8 @@ button, input, select, textarea {
     /*line-height: inherit;*/
     height: 30px;
     border-radius: 20px;
+    position: absolute;
+    left: 83%;
+    margin-top: 180px;
 }
 
