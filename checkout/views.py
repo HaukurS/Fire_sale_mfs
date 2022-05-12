@@ -5,12 +5,21 @@ from Users.models import Profile
 from checkout.form.checkout_form1 import ContactCreateForm
 from checkout.form.checkout_form2 import PaymentInfoCreateForm
 from checkout.models import PaymentInfo
-from items.models import Item
+from items.models import Item, ItemBid
 from django.contrib.auth.decorators import login_required
 
 @login_required
 def create_contactinfo(request, id):
+    print("1")
     user_id = request.user.id
+    print("2")
+    profile_obj = get_object_or_404(Profile, user_id=user_id)
+    print("3")
+    bid_obj = get_object_or_404(ItemBid, id=id)
+    print("4")
+    if bid_obj.bidder_id != profile_obj.id:
+        return redirect('homepage')
+    print("5")
     instance = get_object_or_404(Profile, user_id=user_id)
     if request.method == 'POST':
         form = ContactCreateForm(data=request.POST)
@@ -30,8 +39,9 @@ def create_contactinfo(request, id):
 def create_paymentinfo(request, id):
     user_id = request.user.id
     profile_obj = get_object_or_404(Profile, user_id=user_id)
-    if user_id != 1:# !#$%&/(/&%$#$%&/&%$#$%&/(/&%$%&/&%$#$%&/(
-        pass
+    bid_obj = get_object_or_404(ItemBid, id=id)
+    if bid_obj.bidder_id != profile_obj.id:
+        return redirect('homepage')
     if request.method == 'POST':
         form = PaymentInfoCreateForm(data=request.POST)
         if form.is_valid():
