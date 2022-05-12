@@ -1,8 +1,7 @@
 {% extends "Base.html" %}
 {% block content %}
-<div class="item-detail-cont">
+<div class="bidding">
     <h1>{{ item.name }}</h1>
-
     <p>{{ item.description }}</p>
     <p>{{ item.condition }}</p>
     <p>${{ item.price }}</p>
@@ -14,11 +13,11 @@
     {% elif user.is_authenticated %}
         <a href="{% url 'bid' item.id%}" class="block btn-btn primary"><button>Place Bid</button></a>
     {% endif %}
-    <div class="similar-items">
-        <h1>Similar Items</h1>
-        {% for item in similar_items %}
-            {% include 'Item/single_item.html' with item=item %}
-        {% endfor %}
-    </div>
+</div>
+<div class="items">
+    <h1>Similar Items</h1>
+    {% for item in similar_items %}
+        {% include 'Item/single_item.html' with item=item %}
+    {% endfor %}
 </div>
 {% endblock %}
