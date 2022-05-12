@@ -1,10 +1,10 @@
 from django.shortcuts import get_object_or_404
-
+from django.contrib.auth.decorators import login_required
 from Users.models import Profile
 from items.models import ItemBid, Item
 from notifications.models import Notification
 
-
+@login_required
 def notifications(request):
     id = request.user.id
     context = {
@@ -12,7 +12,7 @@ def notifications(request):
     }
     return context
 
-
+@login_required
 def bids(request):
     id = request.user.id
     profile_obj = get_object_or_404(Profile, user_id=id)
@@ -22,13 +22,6 @@ def bids(request):
     return context
 
 
-def items(request):
-    id = request.user.id
-    profile_obj = get_object_or_404(Profile, user_id=id)
-    context = {
-        'num_of_items': Item.objects.filter(owner_id=profile_obj.id).count()
-    }
-    return context
 
 
 

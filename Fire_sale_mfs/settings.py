@@ -73,7 +73,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'core.services.query_counter.notifications',
                 'core.services.query_counter.bids',
-                'core.services.query_counter.items',
+
             ],
         },
     },
