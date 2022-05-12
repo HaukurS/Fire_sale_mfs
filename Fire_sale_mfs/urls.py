@@ -16,7 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-#These are the urlpatterns for the main branch, everything that happens on the websites follow one of these urls
+
+
+# These are the urlpatterns for the main branch, everything that happens on the websites follow one of these urls
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('Users.urls')),
