@@ -82,7 +82,10 @@ def delete_item(request, id):
 #function that updates an item
 @login_required
 def update_item(request, id):
+    user = request.user
     instance = get_object_or_404(Item, pk=id)
+    if user.id != Item.owner_id:
+        return redirect('homepage')
     if request.method == 'POST':
         form = ItemUpdateForm(data = request.POST, instance=instance)
         if form.is_valid():
@@ -99,7 +102,7 @@ def update_item(request, id):
 @login_required
 def place_bid(request, id):
     user = request.user
-    profile_obj = Profile.objects.get(user_id=user.id)   # sama og uppi :)
+    profile_obj = Profile.objects.get(user_id=user.id)
     item_obj = Item.objects.get(id=id)
     owner_obj = get_object_or_404(User, pk=item_obj.owner_id)
     if request.method == 'POST':
@@ -180,3 +183,4 @@ def accept_offer(request, id):
         send_all_notification(get_object_or_404(Type, name='Rejected'), instance, user_list)
         return redirect('my_offers')
     return redirect('my_offers')
+

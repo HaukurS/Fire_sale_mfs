@@ -6,8 +6,9 @@ from checkout.form.checkout_form1 import ContactCreateForm
 from checkout.form.checkout_form2 import PaymentInfoCreateForm
 from checkout.models import PaymentInfo
 from items.models import Item
+from django.contrib.auth.decorators import login_required
 
-
+@login_required
 def create_contactinfo(request, id):
     user_id = request.user.id
     instance = get_object_or_404(Profile, user_id=user_id)
@@ -25,10 +26,12 @@ def create_contactinfo(request, id):
         'item': get_object_or_404(Item, id=id)
     })
 
-
+@login_required
 def create_paymentinfo(request, id):
     user_id = request.user.id
     profile_obj = get_object_or_404(Profile, user_id=user_id)
+    if user_id != 1:# !#$%&/(/&%$#$%&/&%$#$%&/(/&%$%&/&%$#$%&/(
+        pass
     if request.method == 'POST':
         form = PaymentInfoCreateForm(data=request.POST)
         if form.is_valid():
