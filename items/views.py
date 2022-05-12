@@ -60,10 +60,15 @@ def create_item(request):
         form = ItemCreateForm(data=request.POST)
         if form.is_valid():
             item = form.save(commit=False)
-            item.owner = user_obj  #skoða með tengja á auth user
+            item.owner = user_obj  # skoða með tengja á auth user
             item.save()
-            item_image = ItemImage(image=request.POST['image'], item=item)
-            item_image.save()
+            for img in ['image', 'image1', 'image2']:
+                image = request.POST[img]
+                if image:
+                    item_image = ItemImage(image=request.POST['image'], item=item)
+                    item_image.save()
+            # item.owner = user_obj  #skoða með tengja á auth user
+            # item.save()
             return redirect('index')
     else:
         form = ItemCreateForm()
@@ -199,4 +204,3 @@ def accept_offer(request, id):
         #send_all_notification('Rejected', instance, user_list)
         return redirect('my_offers')
     return redirect('my_offers')
-
