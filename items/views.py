@@ -115,7 +115,7 @@ def place_bid(request, id):
             item_bid.owner = owner_obj
             item_bid.save()
             name = 'New Bid'
-            create_notification(name, ItemBid.objects.last(), item_obj.owner.user)
+            create_notification(name, item_obj.owner.user)
             return redirect('item_details', id=id)
     else:
         form = BidCreateForm()
@@ -176,7 +176,7 @@ def accept_offer(request, id):
         if offer.id != instance.id and offer.item_id == instance.item_id:
             item_bid = get_object_or_404(ItemBid, id=offer.id)
             bid_user = item_bid.bidder.user
-            create_notification('Rejected', item_bid, bid_user)
+            create_notification('Rejected', bid_user)
             item_bid.delete()
     if request.method == 'GET':
         form = BidCreateForm(instance=instance)
@@ -188,7 +188,7 @@ def accept_offer(request, id):
         item_item = form2.save(commit=False)
         item_item.accepted = True
         item_item.save()
-        create_notification('Accepted', instance, instance.bidder.user)
+        create_notification('Accepted', instance.bidder.user)
         #bid_set = ItemBid.objects.filter(item_id=item_obj.id)
         #user_list = []
         #for bid in bid_set:
