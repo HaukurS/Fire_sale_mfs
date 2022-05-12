@@ -1,8 +1,8 @@
 
 <div class="notif-block">
-    {% if notification.type == 'Accepted' %}
+    {% if notification.type.name == 'Accepted' %}
         <p id="notif-desc">Your bid has been accepted! Go to "My Bids" to checkout</p>
-    {% elif notification.type == 'Rejected' %}
+    {% elif notification.type.name == 'Rejected' %}
         <p id="notif-desc">Your bid has been rejected. Better luck next time!</p>
     {% else %}
         <p id="notif-desc">Someone put an offer on one of your items! Go to "Offers for your items" for more details.</p>
