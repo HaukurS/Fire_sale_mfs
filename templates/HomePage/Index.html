@@ -1,6 +1,6 @@
 {% extends 'Base.html' %}
 {% block content %}
-    <h1 class="red">Welcome to Fire Sale!</h1>
+    <h1 style="color: white" class="red">Welcome to Fire Sale!</h1>
     <form class="d-flex" method="POST" action="{% url 'itemsearch' %}">
     {% csrf_token %}
     <div class="searchbar">
