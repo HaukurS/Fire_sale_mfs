@@ -1,12 +1,18 @@
 {% extends "Base.html" %}
 {% block content %}
 <div class="item-detail-cont">
-    <h1>{{ item.name }}</h1>
-
-    <p>{{ item.description }}</p>
-    <p>{{ item.condition }}</p>
-    <p>${{ item.price }}</p>
-    <p>Highest bid: {{ Highest_bid }}</p>
+    <img id="item-detail-img" src="{{ item.image }}"/>
+    <h1 id="item-detail-name">{{ item.name }}</h1>
+    <p id="desc-tag">Description:</p>
+    <p id="item-detail-desc">{{ item.description }}</p>
+    <p id="cat-tag">Category:</p>
+    <p id="item-detail-cat">{{ item.category }}</p>
+    <p id="cond-tag">Condition:</p>
+    <p id="item-detail-cond">{{ item.condition }}</p>
+    <p id="price-listing-tag">Listing price:</p>
+    <p id="item-detail-price"><b></b>${{ item.price }}</p>
+    <p id="highest-bid-tag">Highest bid:</p>
+    <p id="item-detail-highest-bid">${{ Highest_bid }}</p>
     <p>Owner:  {{ item.owner.name }}</p>
     {% if user.is_authenticated and user.id == item.owner_id %}
         <a href="{% url 'delete_item' item.id%}" class="block btn-btn primary"><button>Delete Item</button></a>
@@ -15,9 +21,9 @@
         <a href="{% url 'bid' item.id%}" class="block btn-btn primary"><button>Place Bid</button></a>
     {% endif %}
     <div class="similar-items">
-        <h1>Similar Items</h1>
+        <h1 id="similar-items-tag">Similar Items:</h1>
         {% for item in similar_items %}
-            {% include 'Item/single_item.html' with item=item %}
+            {% include 'Item/single_similar_item.html' with item=item %}
         {% endfor %}
     </div>
 </div>
