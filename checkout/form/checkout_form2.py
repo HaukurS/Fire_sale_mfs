@@ -10,5 +10,6 @@ class PaymentInfoCreateForm(ModelForm):
         widgets = {
             'cardholder_name': widgets.TextInput(attrs={'class': 'form-control'}),
             'card_number': widgets.TextInput(attrs={'class': 'form-control'}),
-            'exp_date': widgets.TextInput(attrs={'class': 'form-control'})
+            'exp_date': widgets.TextInput(attrs={'class': 'form-control'}),
+            'cvc': widgets.TextInput(attrs={'class': 'form-control'})
         }
