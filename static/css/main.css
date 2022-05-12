@@ -587,3 +587,9 @@ body {
     left: 20%;
     margin-top: 440px;
 }
+
+#bid-btn{
+    position: absolute;
+    left: 17%;
+    margin-top: 440px;
+}
