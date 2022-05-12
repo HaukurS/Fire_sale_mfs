@@ -29,3 +29,14 @@ def items(request):
         'num_of_items': Item.objects.filter(owner_id=profile_obj.id).count()
     }
     return context
+
+
+def offer(request):
+    id = request.user.id
+    profile_obj = get_object_or_404(Profile, user_id=id)
+    context = {
+        'num_of_offers': Item.objects.filter(owner_id=profile_obj.id).count()
+    }
+    return context
+
+
