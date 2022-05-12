@@ -593,6 +593,11 @@ body {
     margin-top: 180px;
 }
 
+.login-butt{
+    position: absolute;
+    left: 48.5%;
+}
+
 #add-img-btn{
     position: absolute;
     left: 83%;
