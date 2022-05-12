@@ -530,14 +530,59 @@ body {
 
 .similar-item-block{
     background-color: #F93248;
-    height: 220px;
+    height: 200px;
     width: 200px;
     display: inline-block;
     position: relative;
     left: 35%;
     margin-right: 50px;
     border-radius: 40px;
-    margin-top: -200px;
-    padding-top: 20px;
+    margin-top: -15px;
+    padding-top: 40px;
+    text-align: center;
+    font-size: small;
 }
 
+#similar-item-diviant{
+    color: white;
+    font-size: small;
+    margin-top: 100px;
+}
+
+.similar-item_img{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 25%;
+    margin-top: -10px;
+    border-radius: 20px;
+}
+
+#item-owner-tag{
+    position: absolute;
+    left: 16%;
+    margin-top: 20px;
+    font-size: large;
+    font-weight: bold;
+    color: #F93248;
+}
+
+#item-owner{
+    position: absolute;
+    left: 17%;
+    margin-top: 50px;
+    color: black;
+    font-size: large;
+}
+
+#delete-btn{
+    position: absolute;
+    left: 10%;
+    margin-top: 440px;
+}
+
+#update-btn{
+    position: absolute;
+    left: 20%;
+    margin-top: 440px;
+}
