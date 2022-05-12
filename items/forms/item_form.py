@@ -23,7 +23,7 @@ class ItemCreateForm(ModelForm):
     #image = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
     class Meta:
         model = Item
-        exclude = ['id', 'owner']
+        exclude = ['id', 'owner', 'accepted']
         widgets = {
             'name': widgets.TextInput(attrs={'class': 'form-control'}),
             'description': widgets.TextInput(attrs= {'class': 'form-control'}),
