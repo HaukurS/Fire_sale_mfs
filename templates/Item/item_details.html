@@ -45,15 +45,15 @@
       <!-- Wrapper for slides -->
       <div class="carousel-inner">
         <div class="item active">
-          <img src="{{ item.image }}">
+          <img src="{{ item.image }}" style="display: block; margin-left: auto; margin-right: auto; width: auto; height: 300px;">
         </div>
 
         <div class="item">
-          <img src="{{ item.image1 }}">
+          <img src="{{ item.image1 }}" style="display: block; margin-left: auto; margin-right: auto; width: auto; height: 300px;">
         </div>
 
         <div class="item">
-          <img src="{{ item.image2 }}">
+          <img src="{{ item.image2 }}" style="display: block; margin-left: auto; margin-right: auto; width: auto; height: 300px;">
         </div>
       </div>
 
@@ -68,4 +68,7 @@
       </a>
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 {% endblock %}
