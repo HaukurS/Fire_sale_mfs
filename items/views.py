@@ -114,7 +114,9 @@ def place_bid(request, id):
             item_bid.item = item_obj
             item_bid.owner = owner_obj
             item_bid.save()
-            create_notification(get_object_or_404(Type, name='New Bid'), ItemBid.objects.last(), item_obj.owner.user)
+            thing = item_obj.owner.user
+            name = 'Accepted'
+            create_notification(name, ItemBid.objects.last(), thing)
             return redirect('item_details', id=id)
     else:
         form = BidCreateForm()
@@ -175,7 +177,7 @@ def accept_offer(request, id):
         item_offer = form.save(commit=False)
         item_offer.accepted = True
         item_offer.save()
-        create_notification(get_object_or_404(Type, name='Accepted'), instance, instance.bidder.user)
+        create_notification('Accepted', instance, instance.bidder.user)
         bid_set = ItemBid.objects.filter(item_id=item_obj.id)
         user_list = []
         for bid in bid_set:
@@ -183,7 +185,7 @@ def accept_offer(request, id):
             if user_id != bidder.user_id:
                 user_obj = User.objects.filter(id=user_id)
                 user_list.append(user_obj)
-        send_all_notification(get_object_or_404(Type, name='Rejected'), instance, user_list)
+        send_all_notification('Rejected', instance, user_list)
         return redirect('my_offers')
     return redirect('my_offers')
 
