@@ -1,8 +1,10 @@
 {% extends 'Base.html' %}
 {% block content %}
 <h2 class="red">Item site</h2>
+    <div Class="cat-order">
     {% include 'Item/dropdown.html' %}
     {% include 'Item/dropdown_cat.html' %}
+    </div>
     <div class="items">
         {% for item in items %}
             {% include 'Item/single_item.html' with item=item %}

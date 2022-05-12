@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 
-
+#All urlpatterns for things connected to items
 urlpatterns = [
     # localhost:8000/items
     path('delete_bid/<int:id>', views.delete_bid, name='delete_bid'),

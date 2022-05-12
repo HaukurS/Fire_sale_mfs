@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login
 from Users.models import Profile
 from django.contrib.auth.models import User
 
+#function to register a user
 def register_user(request):
     if request.user.is_authenticated:
         return redirect('homepage')
