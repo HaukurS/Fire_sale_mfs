@@ -341,7 +341,7 @@ body {
 .btn-primary{
     width: 100px;
     display: inline-block;
-    margin : 0 auto
+    margin-left: 250px;
 }
 
 .notif-container{
@@ -586,3 +586,12 @@ body {
     left: 20%;
     margin-top: 440px;
 }
+
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    /*line-height: inherit;*/
+    height: 30px;
+    border-radius: 20px;
+}
+
