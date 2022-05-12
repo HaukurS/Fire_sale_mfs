@@ -127,6 +127,11 @@ def place_bid(request, id):
 #function to delete a bid by specific id
 def delete_bid(request, id):
     item_bid = get_object_or_404(ItemBid, id=id)
+    instance2 = Item.objects.get(id=item_bid.item_id)
+    form2 = ItemCreateForm(instance=instance2)
+    item_item = form2.save(commit=False)
+    item_item.accepted = False
+    item_item.save()
     item_bid.delete()
     return redirect('my_bids')
 
