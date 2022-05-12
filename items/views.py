@@ -164,10 +164,15 @@ def get_user_offers(request):
 #function to accept an offer
 @login_required
 def accept_offer(request, id):
+
     instance = ItemBid.objects.get(id=id)
-    bidder = get_object_or_404(Profile, id=instance.id)
+
+    bidder = get_object_or_404(Profile, id=instance.bidder_id)
+
     item_obj = instance.item
+
     all_offers = ItemBid.objects.all()
+
     for offer in all_offers:
         if offer.id != instance.id and offer.item_id == instance.item_id:
             item_bid = get_object_or_404(ItemBid, id=offer.id)
