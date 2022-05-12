@@ -13,7 +13,7 @@ class Type(models.Model):
 
 
 class Notification(models.Model):
-    type = models.ForeignKey(Type, on_delete=models.CASCADE)
+    name = models.CharField(max_length=255, null=True)
     item_bid = models.ForeignKey(ItemBid, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 

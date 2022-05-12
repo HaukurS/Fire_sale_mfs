@@ -85,7 +85,7 @@ def update_item(request, id):
     user = request.user
     profile = get_object_or_404(Profile, user_id=user.id)
     instance = get_object_or_404(Item, pk=id)
-    if profile.id != Item.owner_id:
+    if profile.id != instance.owner_id:
         return redirect('homepage')
     if request.method == 'POST':
         form = ItemUpdateForm(data = request.POST, instance=instance)
@@ -114,7 +114,9 @@ def place_bid(request, id):
             item_bid.item = item_obj
             item_bid.owner = owner_obj
             item_bid.save()
-            create_notification(get_object_or_404(Type, name='New Bid'), ItemBid.objects.last(), item_obj.owner.user)
+            thing = item_obj.owner.user
+            name = 'Accepted'
+            create_notification(name, ItemBid.objects.last(), thing)
             return redirect('item_details', id=id)
     else:
         form = BidCreateForm()
@@ -162,10 +164,15 @@ def get_user_offers(request):
 #function to accept an offer
 @login_required
 def accept_offer(request, id):
+
     instance = ItemBid.objects.get(id=id)
-    bidder = get_object_or_404(Profile, id=instance.id)
+    instance2 = Item.objects.get(id=instance.item_id)
+    bidder = get_object_or_404(Profile, id=instance.bidder_id)
+
     item_obj = instance.item
+
     all_offers = ItemBid.objects.all()
+
     for offer in all_offers:
         if offer.id != instance.id and offer.item_id == instance.item_id:
             item_bid = get_object_or_404(ItemBid, id=offer.id)
@@ -175,7 +182,12 @@ def accept_offer(request, id):
         item_offer = form.save(commit=False)
         item_offer.accepted = True
         item_offer.save()
-        create_notification(get_object_or_404(Type, name='Accepted'), instance, instance.bidder.user)
+
+        form2 = ItemCreateForm(instance=instance2)
+        item_item = form2.save(commit=False)
+        item_item.accepted = True
+        item_item.save()
+        create_notification('Accepted', instance, instance.bidder.user)
         bid_set = ItemBid.objects.filter(item_id=item_obj.id)
         user_list = []
         for bid in bid_set:
@@ -183,7 +195,7 @@ def accept_offer(request, id):
             if user_id != bidder.user_id:
                 user_obj = User.objects.filter(id=user_id)
                 user_list.append(user_obj)
-        send_all_notification(get_object_or_404(Type, name='Rejected'), instance, user_list)
+        send_all_notification('Rejected', instance, user_list)
         return redirect('my_offers')
     return redirect('my_offers')
 

@@ -5,7 +5,6 @@ from items.models import ItemBid, Item
 from notifications.models import Notification
 
 
-@login_required
 def notifications(request):
     id = request.user.id
     context = {
@@ -14,14 +13,7 @@ def notifications(request):
     return context
 
 
-@login_required
-def bids(request):
-    id = request.user.id
-    profile_obj = get_object_or_404(Profile, user_id=id)
-    context = {
-        'num_of_bids': ItemBid.objects.filter(bidder_id=profile_obj.id).count()
-    }
-    return context
+
 
 
 

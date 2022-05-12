@@ -336,12 +336,13 @@ body {
     width: 100%;
 }
 .inner{
-
+    text-align: center;
 }
 .btn-primary{
     width: 100px;
     display: inline-block;
-    margin-left: 250px;
+    margin : 0 auto;
+    text-align: center;
 }
 
 .notif-container{
