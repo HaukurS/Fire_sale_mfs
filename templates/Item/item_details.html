@@ -12,7 +12,6 @@
     <p id="price-listing-tag">Listing price:</p>
     <p id="item-detail-price"><b></b>${{ item.price }}</p>
     <p id="highest-bid-tag">Highest bid:</p>
-    <p id="item-detail-highest-bid">${{ Highest_bid }}</p>
     <p id="item-owner-tag">Owner:</p>
     <p id="item-owner">{{ item.owner.name }}</p>
     {% if user.is_authenticated and user.id == item.owner_id %}
@@ -20,9 +19,10 @@
         <a href="{% url 'update_item' item.id%}" id="update-btn"><button>Update Item</button></a>
     {% elif user.is_authenticated %}
         {% if item.accepted == False %}
+            <p id="item-detail-highest-bid">${{ Highest_bid }}</p>
         <a href="{% url 'bid' item.id%}" id="bid-btn"><button>Place Bid</button></a>
             {% elif item.accepted == True %}
-            <p>Item has been sold</p>
+            <p id="sold-tag">Item has been sold</p>
             {% endif %}
     {% endif %}
     <div class="similar-items">
