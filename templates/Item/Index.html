@@ -7,7 +7,9 @@
     </div>
     <div class="items">
         {% for item in items %}
-            {% include 'Item/single_item.html' with item=item %}
+            {% if item.accepted == False %}
+                {% include 'Item/single_item.html' with item=item %}
+            {% endif %}
         {% endfor %}
     </div>
 {% endblock %}

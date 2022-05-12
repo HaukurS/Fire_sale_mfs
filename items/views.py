@@ -166,7 +166,7 @@ def get_user_offers(request):
 def accept_offer(request, id):
 
     instance = ItemBid.objects.get(id=id)
-
+    instance2 = Item.objects.get(id=instance.item_id)
     bidder = get_object_or_404(Profile, id=instance.bidder_id)
 
     item_obj = instance.item
@@ -182,6 +182,11 @@ def accept_offer(request, id):
         item_offer = form.save(commit=False)
         item_offer.accepted = True
         item_offer.save()
+
+        form2 = ItemCreateForm(instance=instance2)
+        item_item = form2.save(commit=False)
+        item_item.accepted = True
+        item_item.save()
         create_notification('Accepted', instance, instance.bidder.user)
         bid_set = ItemBid.objects.filter(item_id=item_obj.id)
         user_list = []
