@@ -85,7 +85,7 @@ def update_item(request, id):
     user = request.user
     profile = get_object_or_404(Profile, user_id=user.id)
     instance = get_object_or_404(Item, pk=id)
-    if profile.id != Item.owner_id:
+    if profile.id != instance.owner_id:
         return redirect('homepage')
     if request.method == 'POST':
         form = ItemUpdateForm(data = request.POST, instance=instance)
