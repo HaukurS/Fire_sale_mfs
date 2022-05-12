@@ -588,14 +588,8 @@ body {
     margin-top: 440px;
 }
 
-button, input, select, textarea {
-    font-family: inherit;
-    font-size: inherit;
-    /*line-height: inherit;*/
-    height: 30px;
-    border-radius: 20px;
+#bid-btn{
     position: absolute;
-    left: 83%;
-    margin-top: 180px;
+    left: 17%;
+    margin-top: 440px;
 }
-

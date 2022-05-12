@@ -20,10 +20,7 @@ class ItemUpdateForm(ModelForm):
 
 
 class ItemCreateForm(ModelForm):
-    image = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    image1 = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    image2 = forms.CharField(required=False, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    image3 = forms.CharField(required=False, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    #image = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
     class Meta:
         model = Item
         exclude = ['id', 'owner', 'accepted']
@@ -33,7 +30,7 @@ class ItemCreateForm(ModelForm):
             'condition': widgets.TextInput(attrs={'class': 'form-control'}),
             'category': widgets.Select(attrs={'class': 'form-control'}),
             'price': widgets.NumberInput(attrs={'class': 'form-control'}),
-            # 'image': widgets.TextInput(attrs={'class': 'form-control'})
+            'image': widgets.TextInput(attrs={'class': 'form-control'})
         }
 
 
