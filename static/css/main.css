@@ -370,7 +370,7 @@ body {
     position: relative;
 }
 
-#item-detail-name{
+#item-detail-name {
     position: absolute;
     left: 35%;
     top: 20px;
@@ -379,6 +379,7 @@ body {
     text-transform: uppercase;
     inline-size: 500px;
     overflow-wrap: break-word;
+    color: #F93248;
 }
 
 #item-detail-img{
@@ -392,9 +393,120 @@ body {
 #item-detail-desc{
     position: absolute;
     left: 35%;
-    top: 100px;
+    top: 130px;
     color: black;
     font-size: large;
     inline-size: 500px;
     overflow-wrap: break-word;
 }
+
+#desc-tag{
+    position: absolute;
+    left: 35%;
+    top: 100px;
+    font-size: large;
+    font-weight: bold;
+    color: #F93248;
+}
+
+#cat-tag{
+    position: absolute;
+    left: 35%;
+    top: 220px;
+    font-size: large;
+    font-weight: bold;
+    color: #F93248;
+}
+
+#item-detail-cat{
+    position: absolute;
+    left: 35%;
+    top: 250px;
+    color: black;
+    font-size: large;
+}
+
+#cond-tag{
+    position: absolute;
+    left: 35%;
+    top: 290px;
+    font-size: large;
+    font-weight: bold;
+    color: #F93248;
+}
+
+#item-detail-cond{
+    position: absolute;
+    left: 35%;
+    top: 310px;
+    color: black;
+    font-size: large;
+}
+
+#item-detail-price{
+    position: absolute;
+    left: 83%;
+    top: 75px;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    inline-size: 130px;
+    overflow-wrap: break-word;
+    color: black;
+}
+
+#price-listing-tag{
+    position: absolute;
+    left: 83%;
+    top: 49px;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    color: #F93248;
+}
+
+#item-detail-highest-bid{
+    position: absolute;
+    left: 83%;
+    top: 300px;
+    color: black;
+    font-weight: bold;
+    font-size: 28px;
+    inline-size: 170px;
+    overflow-wrap: break-word;
+    color: black;
+}
+
+
+#highest-bid-tag{
+    position: absolute;
+    left: 83%;
+    top: 274px;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    color: #F93248;
+}
+
+#similar-items-tag{
+    position: absolute;
+    left: 35%;
+    top: 330px;
+    font-size: large;
+    font-weight: bold;
+    color: #F93248;
+}
+
+.similar-item-block{
+    background-color: #F93248;
+    height: 220px;
+    width: 200px;
+    display: inline-block;
+    position: relative;
+    left: 35%;
+    margin-right: 50px;
+    border-radius: 40px;
+    margin-top: -200px;
+    padding-top: 20px;
+}
+
