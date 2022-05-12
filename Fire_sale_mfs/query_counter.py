@@ -4,13 +4,15 @@ from Users.models import Profile
 from items.models import ItemBid, Item
 from notifications.models import Notification
 
+
 @login_required
 def notifications(request):
     id = request.user.id
     context = {
-        'num_of_notify': Notification.objects.filter(user_id=id).count()
+        'num_of_notify': len(Notification.objects.filter(user_id=id))
     }
     return context
+
 
 @login_required
 def bids(request):

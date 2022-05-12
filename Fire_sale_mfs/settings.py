@@ -71,9 +71,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                #'core.services.query_counter.notifications',
-                #'core.services.query_counter.bids',
-
+                # 'Fire_sale_mfs.query_counter.notifications',
+                # 'Fire_sale_mfs.query_counter.bids',
             ],
         },
     },

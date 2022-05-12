@@ -2,13 +2,8 @@
 {% block content %}
 <h2 class="red">Your Items</h2>
     <div class="items">
-    {% if num_of_items > 0 %}
         {% for item in items %}
             {% include 'Item/single_item.html' with item=item %}
         {% endfor %}
-    {% else %}
-        <h2>You have no items for sale!</h2>
-        <a href="/items/create_item" class="block btn-btn primary">Click here to list an item</a>
-    {% endif %}
     </div>
 {% endblock %}

@@ -2,13 +2,8 @@
 {% block content %}
 <h2 class="red">Your Bids</h2>
     <div class="items">
-    {% if num_of_bids > 0 %}
         {% for item_offer in item_offers %}
             {% include 'Item/single_offer.html' with item_offer=item_offer %}
         {% endfor %}
-    {% else %}
-        <h2>You have no pending bids!</h2>
-        <a href="/items/" class="block btn-btn primary">Go to item site</a>
-    {% endif %}
     </div>
 {% endblock %}

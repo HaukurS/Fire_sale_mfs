@@ -83,8 +83,9 @@ def delete_item(request, id):
 @login_required
 def update_item(request, id):
     user = request.user
+    profile = get_object_or_404(Profile, user_id=user.id)
     instance = get_object_or_404(Item, pk=id)
-    if user.id != Item.owner_id:
+    if profile.id != Item.owner_id:
         return redirect('homepage')
     if request.method == 'POST':
         form = ItemUpdateForm(data = request.POST, instance=instance)

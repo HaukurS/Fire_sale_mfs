@@ -1,12 +1,8 @@
 {% extends 'Base.html' %}
 {% block content %}
     <div class="items">
-    {% if num_of_notify > 0 %}
         {% for notification in notifications %}
             {% include 'Notification/single_notification.html' with notification=notification %}
         {% endfor %}
-    {% else %}
-        <h1> Oops! You have no notifications!</h1>
-    {% endif %}
     </div>
 {% endblock %}
