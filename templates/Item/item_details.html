@@ -19,7 +19,11 @@
         <a href="{% url 'delete_item' item.id%}" id="delete-btn"><button>Delete Item</button></a>
         <a href="{% url 'update_item' item.id%}" id="update-btn"><button>Update Item</button></a>
     {% elif user.is_authenticated %}
+        {% if item.accepted == False %}
         <a href="{% url 'bid' item.id%}" id="bid-btn"><button>Place Bid</button></a>
+            {% elif item.accepted == True %}
+            <p>Item has been sold</p>
+            {% endif %}
     {% endif %}
     <div class="similar-items">
         <h1 id="similar-items-tag">Similar Items:</h1>
