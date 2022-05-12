@@ -75,7 +75,7 @@ def create_item(request):
 def delete_item(request, id):
     item = get_object_or_404(Item, pk=id)
     item.delete()
-    return redirect('index')
+    return redirect('my_items')
 
 
 @login_required
