@@ -569,7 +569,7 @@ body {
 
 #item-owner{
     position: absolute;
-    left: 17%;
+    left: 16%;
     margin-top: 50px;
     color: black;
     font-size: large;
@@ -591,4 +591,22 @@ body {
     position: absolute;
     left: 83%;
     margin-top: 180px;
+}
+
+#add-img-btn{
+    position: absolute;
+    left: 83%;
+    margin-top: 180px;
+}
+
+#sold-tag{
+    position: absolute;
+    left: 83%;
+    top: 300px;
+    color: black;
+    font-weight: bold;
+    font-size: 15px;
+    inline-size: 170px;
+    overflow-wrap: break-word;
+    color: black;
 }
