@@ -18,7 +18,7 @@ class Profile(models.Model):
     profile_image = models.CharField(max_length=9999, blank=True)
     bio = models.CharField(max_length=9999, blank=True, null=True)
     street_name = models.CharField(max_length=999, blank=True, null=True)
-    phone_number = models.FloatField(max_length=255, blank=True, null=True)
+    phone_number = models.CharField(max_length=255, blank=True, null=True)
     city = models.CharField(max_length=255, blank=True, null=True)
     zip = models.CharField(max_length=255, blank=True, null=True)
     country = models.ForeignKey(Country, on_delete=models.CASCADE, null=True)

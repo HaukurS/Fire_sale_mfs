@@ -9,7 +9,7 @@
     {% for item in items %}
         {% if item.id == item_offer.item_id %}
             {% if item_offer.accepted == True %}
-                <a href="{% url 'step_one' item.id%}"><button>Go to checkout</button></a>
+                <a href="{% url 'step_one' item_offer.id%}"><button>Go to checkout</button></a>
             {% endif %}
         {% endif %}
     {% endfor %}
