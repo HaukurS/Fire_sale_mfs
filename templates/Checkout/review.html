@@ -1,6 +1,7 @@
 {% extends 'Base.html' %}
 {% block content %}
 <div class="bidding">
+<div class="offers-n-bids-block">
     <img class="item_img" src="{{ item.image }}"/>
     <p>Item Name: {{ item.name }}</p>
     <p>Full name: {{ contact_info.name }}</p>
@@ -11,6 +12,7 @@
     <p>Cardholder Name: {{ payment_info.cardholder_name }}</p>
     <p>Card Number: {{ payment_info.card_number }}</p>
     <p>Expiration Date: {{ payment_info.exp_date }}</p>
+</div>
 </div>
     <a href="{% url 'delete_item' item.id %}">Confirm Purchase</a>
     <input type=button value="Previous Page" onClick="javascript:history.go(-1);">
