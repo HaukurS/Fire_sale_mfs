@@ -12,5 +12,5 @@ class ContactCreateForm(ModelForm):
             'street_name': widgets.TextInput(attrs={'class': 'form-control'}),
             'city': widgets.TextInput(attrs={'class': 'form-control'}),
             'zip': widgets.NumberInput(attrs={'class': 'form-control'}),
-            'country': widgets.Select(attrs={'class': 'form-control'})
+            'country': widgets.Select(attrs={'class': 'form-control'}),
         }

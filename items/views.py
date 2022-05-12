@@ -162,6 +162,7 @@ def get_user_offers(request):
 @login_required
 def accept_offer(request, id):
     instance = ItemBid.objects.get(id=id)
+    bidder = get_object_or_404(Profile, id=instance.id)
     item_obj = instance.item
     all_offers = ItemBid.objects.all()
     for offer in all_offers:
@@ -178,8 +179,9 @@ def accept_offer(request, id):
         user_list = []
         for bid in bid_set:
             user_id = bid.bidder.user_id
-            user_obj = User.objects.filter(id=user_id)
-            user_list.append(user_obj)
+            if user_id != bidder.user_id:
+                user_obj = User.objects.filter(id=user_id)
+                user_list.append(user_obj)
         send_all_notification(get_object_or_404(Type, name='Rejected'), instance, user_list)
         return redirect('my_offers')
     return redirect('my_offers')
