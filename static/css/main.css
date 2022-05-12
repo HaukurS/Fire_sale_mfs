@@ -89,6 +89,7 @@
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     font-size:small;
+    border-radius: 40px;
 }
 .bio-block{
     width: 45%;
@@ -108,9 +109,7 @@
     font-size: medium;
     color: white;
     font-weight: bolder;
-
-
-
+    border-radius: 40px;
 }
 .profile-pic {
   width: 200px;
@@ -358,7 +357,7 @@ body {
 .notif-block{
     height: 80px;
     width: 80%;
-    background-color: red;
+    background-color: white;
     border-radius: 40px;
     margin-top: 40px;
     margin-left: 10%;
@@ -378,13 +377,13 @@ body {
     position: absolute;
     left: 50px;
     top: 37%;
-    color: white;
+    color: #F93248;
     font-weight: bold;
     font-size: large;
 }
 
 #delete-notif-icon{
-    color: white;
+    color: #F93248;
     height: 35px;
     width: 35px;
 }
