@@ -5,30 +5,34 @@ from items.models import ItemImage, Item, ItemCategory, ItemBid
 from Users.models import Profile
 from django.contrib.auth.decorators import login_required
 from django.db.models import Max
-from core.services.notification_creater import create_notification, send_all_notification
+from core.services.notification_creater import create_notification
 from notifications.models import Type
 
 # Create your views here.
 
-#function that renders all items to page
+
+# function that renders all items to page
 def index(request):
     context = {'items': Item.objects.all().order_by('name'),
                'categorys': ItemCategory.objects.all()}
     return render(request, 'Item/Index.html', context)
 
-#orders the items from high-low
+
+# orders the items from high-low
 def orderpricehigh(request):
     context = {'items': Item.objects.all().order_by('-price'),
                'categorys': ItemCategory.objects.all()}
     return render(request, 'Item/Index.html', context)
 
-#orders the items from low-high
+
+# orders the items from low-high
 def orderpricelow(request):
     context = {'items': Item.objects.all().order_by('price'),
                'categorys': ItemCategory.objects.all()}
     return render(request, 'Item/Index.html', context)
 
-#gets an item by a specific id
+
+# gets an item by a specific id
 def get_item_by_id(request, id):
     user = request.user
     if request.user.is_authenticated:
@@ -50,15 +54,17 @@ def get_item_by_id(request, id):
         'similar_items': similar_items
     })
 
-#gets items by a specific category
+
+# gets items by a specific category
 def get_items_by_category(request, category):
     context = {'items': Item.objects.all().filter(category__name__exact=category),
                'categorys': ItemCategory.objects.all()}
     return render(request, 'Item/Index.html', context)
-    #context = {'items': Item.objects.filter(category__item__name=category)}
-    #return render(request, 'Item/Index.html', context)
+    # context = {'items': Item.objects.filter(category__item__name=category)}
+    # return render(request, 'Item/Index.html', context)
 
-#function to create an item
+
+# function to create an item
 @login_required
 def create_item(request):
     user = request.user
@@ -84,14 +90,16 @@ def create_item(request):
         'form': form
     })
 
-#function that deletes an item with a specific id
+
+# function that deletes an item with a specific id
 @login_required
 def delete_item(request, id):
     item = get_object_or_404(Item, pk=id)
     item.delete()
     return redirect('homepage')
 
-#function that updates an item
+
+# function that updates an item
 @login_required
 def update_item(request, id):
     user = request.user
@@ -111,22 +119,23 @@ def update_item(request, id):
         'id': id
     })
 
-#function to place a bid
+
+# function to place a bid
 @login_required
 def place_bid(request, id):
     user = request.user
     bidder_obj = Profile.objects.get(user_id=user.id)
     item_obj = Item.objects.get(id=id)
-    OwnerProfile = Profile.objects.get(id=item_obj.owner_id)
-    OwnerUser = User.objects.get(id = OwnerProfile.user_id)
-    #owner_obj = get_object_or_404(Profile, pk=item_obj.owner_id)
+    owner_profile = Profile.objects.get(id=item_obj.owner_id)
+    owner_user = User.objects.get(id = owner_profile.user_id)
+
     if request.method == 'POST':
         form = BidCreateForm(data=request.POST)
         if form.is_valid():
             item_bid = form.save(commit=False)
             item_bid.bidder = bidder_obj
             item_bid.item = item_obj
-            item_bid.owner = OwnerUser
+            item_bid.owner = owner_user
             item_bid.save()
             name = 'New Bid'
             create_notification(name, item_obj.owner.user)
@@ -138,7 +147,8 @@ def place_bid(request, id):
         'id': id
     })
 
-#function to delete a bid by specific id
+
+# function to delete a bid by specific id
 def delete_bid(request, id):
     item_bid = get_object_or_404(ItemBid, id=id)
     instance2 = Item.objects.get(id=item_bid.item_id)
@@ -149,7 +159,8 @@ def delete_bid(request, id):
     item_bid.delete()
     return redirect('my_bids')
 
-#function to delete an offer by specific id
+
+# function to delete an offer by specific id
 def delete_offer(request, id):
     item_bid = get_object_or_404(ItemBid, id=id)
     user_obj = item_bid.bidder.user
@@ -158,7 +169,7 @@ def delete_offer(request, id):
     return redirect('my_offers')
 
 
-#function that gets all the items of a specific user
+# function that gets all the items of a specific user
 @login_required
 def get_user_items(request):
     user = request.user
@@ -166,7 +177,8 @@ def get_user_items(request):
     context = {'items': Item.objects.filter(owner_id=profile.id)}
     return render(request, 'Item/my_items.html', context)
 
-#function that gets all bids from a specific user
+
+# function that gets all bids from a specific user
 @login_required
 def get_user_bids(request):
     user = request.user
@@ -176,20 +188,21 @@ def get_user_bids(request):
     return render(request, 'Item/my_bids.html', context)
 
 
-#function that gets all offers from a specific user
+# function that gets all offers from a specific user
 @login_required
 def get_user_offers(request):
     user = request.user
     context = {'item_your_offers': ItemBid.objects.filter(owner_id=user.id)}
     return render(request, 'Item/my_offers.html', context)
 
-#function to accept an offer
+
+# function to accept an offer
 @login_required
 def accept_offer(request, id):
     instance = ItemBid.objects.get(id=id)
     instance2 = Item.objects.get(id=instance.item_id)
-    bidder = get_object_or_404(Profile, id=instance.bidder_id)
-    item_obj = instance.item      #skoða ARNAR HVAÐ ERTU AÐ GERA???
+    #bidder = get_object_or_404(Profile, id=instance.bidder_id)
+    #item_obj = instance.item      #skoða ARNAR HVAÐ ERTU AÐ GERA???
     all_offers = ItemBid.objects.all()
     for offer in all_offers:
         if offer.id != instance.id and offer.item_id == instance.item_id:

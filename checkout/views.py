@@ -7,6 +7,7 @@ from checkout.models import PaymentInfo
 from items.models import Item, ItemBid
 from django.contrib.auth.decorators import login_required
 
+
 @login_required
 def create_contactinfo(request, id):
     user_id = request.user.id
@@ -29,6 +30,7 @@ def create_contactinfo(request, id):
         'form': form,
         'bid': bid_obj
     })
+
 
 @login_required
 def create_paymentinfo(request, id):

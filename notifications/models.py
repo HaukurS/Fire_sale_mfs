@@ -5,6 +5,7 @@ from django.db import models
 from items.models import ItemBid
 
 
+# We don't use this model anymore
 class Type(models.Model):
     name = models.CharField(max_length=255)
 

@@ -3,11 +3,13 @@ from items.models import Item, ItemBid
 
 # Create your views here.
 
-#function to render the homepage
+
+# function to render the homepage
 def home(request):
     return render(request, 'HomePage/Index.html')
 
-#function for the search bar
+
+# function for the search bar
 def search_item(request):
     if request.method == "POST":
         searched = request.POST['searched']
@@ -18,12 +20,5 @@ def search_item(request):
     else:
         return render(request, 'HomePage/Search_item.html')
 
-
-def handler404(request, exception):
-    return render(request, '404.html')
-
-
-def handler500(request):
-    return render(request, '500.html')
 
 

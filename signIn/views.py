@@ -4,7 +4,8 @@ from django.contrib.auth import authenticate, login
 from Users.models import Profile
 from django.contrib.auth.models import User
 
-#function to register a user
+
+# function to register a user
 def register_user(request):
     if request.user.is_authenticated:
         return redirect('homepage')
@@ -20,14 +21,4 @@ def register_user(request):
     else:
         form = UserRegistration()
     return render(request, 'SignIn/register.html', {'form': form})
-
-#def user_profile(request):
-#    profile = User.objects.filter(user=request.user).first()
-#    if request.method == 'POST':
-#        form = UserRegistration(data=request.POST)
-#        if form.is_valid():
-#            form.save()
-#    #else:
-     #   form = UserProfile()
-#    return render(request, 'User/Profile.html', {'form': user_profile(instance=profile)})
 
