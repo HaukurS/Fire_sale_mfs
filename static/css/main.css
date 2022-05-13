@@ -424,7 +424,7 @@ body {
 #item-detail-desc{
     position: absolute;
     left: 35%;
-    top: 130px;
+    top: 150px;
     color: black;
     font-size: large;
     inline-size: 500px;
@@ -434,7 +434,7 @@ body {
 #desc-tag{
     position: absolute;
     left: 35%;
-    top: 100px;
+    top: 130px;
     font-size: large;
     font-weight: bold;
     color: #F93248;
@@ -469,7 +469,7 @@ body {
 #item-detail-cond{
     position: absolute;
     left: 35%;
-    top: 310px;
+    top: 315px;
     color: black;
     font-size: large;
 }
@@ -521,8 +521,7 @@ body {
 
 #similar-items-tag{
     position: absolute;
-    left: 35%;
-    top: 330px;
+    bottom: 200px;
     font-size: large;
     font-weight: bold;
     color: #F93248;
@@ -532,15 +531,14 @@ body {
     background-color: #F93248;
     height: 200px;
     width: 200px;
-    display: inline-block;
     position: relative;
-    left: 35%;
     margin-right: 50px;
     border-radius: 40px;
-    margin-top: -15px;
+    /*margin-top: 330px;*/
     padding-top: 40px;
     text-align: center;
     font-size: small;
+    float: left;
 }
 
 #similar-item-diviant{
@@ -561,7 +559,7 @@ body {
 #item-owner-tag{
     position: absolute;
     left: 16%;
-    margin-top: 20px;
+    margin-top: 350px;
     font-size: large;
     font-weight: bold;
     color: #F93248;
@@ -570,7 +568,7 @@ body {
 #item-owner{
     position: absolute;
     left: 16%;
-    margin-top: 50px;
+    margin-top: 380px;
     color: black;
     font-size: large;
 }
@@ -593,11 +591,11 @@ body {
     margin-top: 180px;
 }
 
-#add-img-btn{
+.login-butt{
     position: absolute;
-    left: 83%;
-    margin-top: 180px;
+    left: 48.5%;
 }
+
 
 #sold-tag{
     position: absolute;
@@ -610,3 +608,18 @@ body {
     overflow-wrap: break-word;
     color: black;
 }
+
+#myCarousel{
+    height: 300px;
+    width: 400px;
+    margin-left: 20px;
+    position: absolute;
+}
+
+.similar-items{
+    /*width: 200px;*/
+    margin-left: 430px;
+    position: absolute;
+    bottom: 20px;
+}
+

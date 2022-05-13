@@ -1,7 +1,7 @@
 {% extends "Base.html" %}
 {% block content %}
 <div class="item-detail-cont">
-    <img id="item-detail-img" src="{{ item.image }}"/>
+{#    <img id="item-detail-img" src="{{ item.image }}"/>#}
     <h1 id="item-detail-name">{{ item.name }}</h1>
     <p id="desc-tag">Description:</p>
     <p id="item-detail-desc">{{ item.description }}</p>
@@ -31,5 +31,44 @@
             {% include 'Item/single_similar_item.html' with item=item %}
         {% endfor %}
     </div>
+
+{#images#}
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <div class="item active">
+          <img src="{{ item.image }}" style="display: block; margin-left: auto; margin-right: auto; width: auto; height: 300px;">
+        </div>
+
+        <div class="item">
+          <img src="{{ item.image1 }}" style="display: block; margin-left: auto; margin-right: auto; width: auto; height: 300px;">
+        </div>
+
+        <div class="item">
+          <img src="{{ item.image2 }}" style="display: block; margin-left: auto; margin-right: auto; width: auto; height: 300px;">
+        </div>
+      </div>
+
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 {% endblock %}
