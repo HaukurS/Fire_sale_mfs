@@ -14,7 +14,9 @@ class ItemUpdateForm(ModelForm):
             'condition': widgets.TextInput(attrs={'class': 'form-control'}),
             'category': widgets.Select(attrs={'class': 'form-control'}),
             'price': widgets.NumberInput(attrs={'class': 'form-control'}),
-            'image': widgets.TextInput(attrs={'class': 'form-control'})
+            'image': widgets.TextInput(attrs={'class': 'form-control'}),
+            'image1': widgets.TextInput(attrs={'class': 'form-control'}),
+            'image2': widgets.TextInput(attrs={'class': 'form-control'})
         }
 
 

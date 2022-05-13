@@ -16,10 +16,11 @@ def create_contactinfo(request, id):
         return redirect('homepage')
     instance = get_object_or_404(Profile, user_id=user_id)
     if request.method == 'POST':
-        form = ContactCreateForm(data=request.POST)
+        form = ContactCreateForm(data=request.POST, instance=instance)
         if form.is_valid():
             contact = form.save(commit=False)
             contact.user = request.user
+            contact.save()
             return redirect('step_two', id)
     else:
         form = ContactCreateForm(instance=instance)
