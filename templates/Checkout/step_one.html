@@ -1,6 +1,6 @@
 {% extends 'Base.html' %}
 {% block content %}
-    <h1>Checkout Step 1</h1>
+    <h1 class="red">Checkout Step 1</h1>
     <form class="form form-horizontal" action=" {% url 'step_one' bid.id %} " method ="post">
         {% csrf_token %}
         {{ form }}
