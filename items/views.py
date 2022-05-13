@@ -172,7 +172,7 @@ def get_user_bids(request):
 @login_required
 def get_user_offers(request):
     user = request.user
-    context = {'item_your_offers': ItemBid.objects.filter(owner_id=user.id)}
+    context = {'item_your_offers': ItemBid.objects.filter(bidder_id=user.id)}
     return render(request, 'Item/my_offers.html', context)
 
 #function to accept an offer
