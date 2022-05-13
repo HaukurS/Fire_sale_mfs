@@ -31,8 +31,12 @@ def orderpricelow(request):
 #gets an item by a specific id
 def get_item_by_id(request, id):
     user = request.user
+    if request.user.is_authenticated:
+        profile_obj = get_object_or_404(Profile, user_id=user.id)
+    else:
+        profile_obj = None
     item_obj = get_object_or_404(Item, pk=id)
-    profile_obj = get_object_or_404(Profile, user_id=user.id)
+
     category = item_obj.category
     highest_bid1 = ItemBid.objects.all().filter(item_id=id).aggregate(Max('item_price'))
     max_bid = highest_bid1.get('item_price__max')
