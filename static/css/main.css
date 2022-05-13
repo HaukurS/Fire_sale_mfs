@@ -611,7 +611,7 @@ body {
 
 #myCarousel{
     height: 300px;
-    width: 400px;
+    width: 33%;
     left: 1%;
     position: absolute;
 }
@@ -620,6 +620,6 @@ body {
     /*width: 200px;*/
     left: 35%;
     position: absolute;
-    bottom: 20px;
+    bottom: 3%;
 }
 
