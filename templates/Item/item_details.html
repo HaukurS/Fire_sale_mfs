@@ -27,7 +27,7 @@
     {% endif %}
     <div class="similar-items">
         <h1 id="similar-items-tag">Similar Items:</h1>
-        {% for item in similar_items|slice:"3" %}
+        {% for item in similar_items|slice:"2" %}
             {% include 'Item/single_similar_item.html' with item=item %}
         {% endfor %}
     </div>
