@@ -14,7 +14,7 @@
     <p id="highest-bid-tag">Highest bid:</p>
     <p id="item-owner-tag">Owner:</p>
     <p id="item-owner">{{ item.owner.name }}</p>
-    {% if user.is_authenticated and user.id == item.owner_id %}
+    {% if user.is_authenticated and user_profile.id == item.owner_id %}
         <a href="{% url 'delete_item' item.id%}" id="delete-btn"><button>Delete Item</button></a>
         <a href="{% url 'update_item' item.id%}" id="update-btn"><button>Update Item</button></a>
     {% elif user.is_authenticated %}

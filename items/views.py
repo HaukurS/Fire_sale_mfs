@@ -30,7 +30,9 @@ def orderpricelow(request):
 
 #gets an item by a specific id
 def get_item_by_id(request, id):
+    user = request.user
     item_obj = get_object_or_404(Item, pk=id)
+    profile_obj = get_object_or_404(Profile, user_id=user.id)
     category = item_obj.category
     highest_bid1 = ItemBid.objects.all().filter(item_id=id).aggregate(Max('item_price'))
     max_bid = highest_bid1.get('item_price__max')
@@ -40,6 +42,7 @@ def get_item_by_id(request, id):
     return render(request, 'Item/item_details.html', {
         'item': item_obj,
         'Highest_bid': max_bid,
+        'user_profile': profile_obj,
         'similar_items': similar_items
     })
 
@@ -110,7 +113,7 @@ def place_bid(request, id):
     user = request.user
     profile_obj = Profile.objects.get(user_id=user.id)
     item_obj = Item.objects.get(id=id)
-    owner_obj = get_object_or_404(User, pk=item_obj.owner_id)
+    owner_obj = get_object_or_404(Profile, pk=item_obj.owner_id)
     if request.method == 'POST':
         form = BidCreateForm(data=request.POST)
         if form.is_valid():
@@ -151,14 +154,16 @@ def delete_offer(request, id):
 @login_required
 def get_user_items(request):
     user = request.user
-    context = {'items': Item.objects.filter(owner_id=user.id)}
+    profile = get_object_or_404(Profile, user_id=user.id)
+    context = {'items': Item.objects.filter(owner_id=profile.id)}
     return render(request, 'Item/my_items.html', context)
 
 #function that gets all bids from a specific user
 @login_required
 def get_user_bids(request):
     user = request.user
-    context = {'item_offers': ItemBid.objects.filter(bidder_id=user.id),
+    profile = get_object_or_404(Profile, user_id=user.id)
+    context = {'item_offers': ItemBid.objects.filter(bidder_id=profile.id),
                'items': Item.objects.all().order_by('name')}
     return render(request, 'Item/my_bids.html', context)
 
@@ -173,15 +178,11 @@ def get_user_offers(request):
 #function to accept an offer
 @login_required
 def accept_offer(request, id):
-
     instance = ItemBid.objects.get(id=id)
     instance2 = Item.objects.get(id=instance.item_id)
     bidder = get_object_or_404(Profile, id=instance.bidder_id)
-
-    item_obj = instance.item
-
+    item_obj = instance.item      #skoða ARNAR HVAÐ ERTU AÐ GERA???
     all_offers = ItemBid.objects.all()
-
     for offer in all_offers:
         if offer.id != instance.id and offer.item_id == instance.item_id:
             item_bid = get_object_or_404(ItemBid, id=offer.id)
