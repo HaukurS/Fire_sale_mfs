@@ -113,6 +113,7 @@ def place_bid(request, id):
     user = request.user
     bidder_obj = Profile.objects.get(user_id=user.id)
     item_obj = Item.objects.get(id=id)
+    OwnerProfile = Profile.objects.get(id=item_obj.owner_id)
     #owner_obj = get_object_or_404(Profile, pk=item_obj.owner_id)
     if request.method == 'POST':
         form = BidCreateForm(data=request.POST)
@@ -120,7 +121,7 @@ def place_bid(request, id):
             item_bid = form.save(commit=False)
             item_bid.bidder = bidder_obj
             item_bid.item = item_obj
-            item_bid.owner = item_obj.owner
+            item_bid.owner = OwnerProfile.user_id
             item_bid.save()
             name = 'New Bid'
             create_notification(name, item_obj.owner.user)
