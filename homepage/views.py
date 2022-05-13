@@ -18,3 +18,11 @@ def search_item(request):
     else:
         return render(request, 'HomePage/Search_item.html')
 
+
+def handler404(request, exception):
+    return render(request, '404.html')
+
+
+
+
+

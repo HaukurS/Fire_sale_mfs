@@ -30,3 +30,7 @@ urlpatterns = [
     path('checkout/', include('checkout.urls')),
     path('notifications/', include('notifications.urls'))
 ]
+
+handler404 = 'homepage.views.handler404'
+
+
