@@ -612,13 +612,13 @@ body {
 #myCarousel{
     height: 300px;
     width: 400px;
-    margin-left: 20px;
+    left: 1%;
     position: absolute;
 }
 
 .similar-items{
     /*width: 200px;*/
-    margin-left: 430px;
+    left: 35%;
     position: absolute;
     bottom: 20px;
 }
