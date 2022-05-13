@@ -111,16 +111,16 @@ def update_item(request, id):
 @login_required
 def place_bid(request, id):
     user = request.user
-    profile_obj = Profile.objects.get(user_id=user.id)
+    bidder_obj = Profile.objects.get(user_id=user.id)
     item_obj = Item.objects.get(id=id)
-    owner_obj = get_object_or_404(Profile, pk=item_obj.owner_id)
+    #owner_obj = get_object_or_404(Profile, pk=item_obj.owner_id)
     if request.method == 'POST':
         form = BidCreateForm(data=request.POST)
         if form.is_valid():
             item_bid = form.save(commit=False)
-            item_bid.bidder = profile_obj
+            item_bid.bidder = bidder_obj
             item_bid.item = item_obj
-            item_bid.owner = owner_obj
+            item_bid.owner = user
             item_bid.save()
             name = 'New Bid'
             create_notification(name, item_obj.owner.user)
