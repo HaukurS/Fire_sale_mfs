@@ -194,14 +194,6 @@ def accept_offer(request, id):
         item_item.accepted = True
         item_item.save()
         create_notification('Accepted', instance.bidder.user)
-        #bid_set = ItemBid.objects.filter(item_id=item_obj.id)
-        #user_list = []
-        #for bid in bid_set:
-            #user_id = bid.bidder.user_id
-            #if user_id != bidder.user_id:
-                #user_obj = User.objects.filter(id=user_id)
-                #user_list.append(user_obj)
-        #send_all_notification('Rejected', instance, user_list)
         return redirect('my_offers')
     return redirect('my_offers')
 
