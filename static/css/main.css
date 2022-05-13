@@ -284,7 +284,13 @@ img#logo {
     height: 40px;
     /*padding: 10px;*/
 }
+img#profpic {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+     overflow: hidden;
 
+}
 .navbar-brand{
     padding: 10px;
 }
@@ -595,7 +601,10 @@ body {
     position: absolute;
     left: 48.5%;
 }
-
+.register-butt{
+    position: absolute;
+    left: 48.5%;
+}
 
 #sold-tag{
     position: absolute;
