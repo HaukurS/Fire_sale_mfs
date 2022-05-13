@@ -120,7 +120,7 @@ def place_bid(request, id):
             item_bid = form.save(commit=False)
             item_bid.bidder = bidder_obj
             item_bid.item = item_obj
-            item_bid.owner = user
+            item_bid.owner = item_obj.owner
             item_bid.save()
             name = 'New Bid'
             create_notification(name, item_obj.owner.user)
@@ -172,7 +172,7 @@ def get_user_bids(request):
 @login_required
 def get_user_offers(request):
     user = request.user
-    context = {'item_your_offers': ItemBid.objects.filter(bidder_id=user.id)}
+    context = {'item_your_offers': ItemBid.objects.filter(owner_id=user.id)}
     return render(request, 'Item/my_offers.html', context)
 
 #function to accept an offer
