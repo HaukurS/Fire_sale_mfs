@@ -148,7 +148,9 @@ def delete_bid(request, id):
 #function to delete an offer by specific id
 def delete_offer(request, id):
     item_bid = get_object_or_404(ItemBid, id=id)
+    user_obj = item_bid.bidder.user
     item_bid.delete()
+    create_notification('Rejected', user_obj)
     return redirect('my_offers')
 
 
