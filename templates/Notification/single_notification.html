@@ -1,11 +1,11 @@
 
 <div class="notif-block">
     {% if notification.name == 'Accepted' %}
-        <p id="notif-desc">Your bid has been accepted! Go to "My Bids" to checkout</p>
+        <p id="notif-desc">Your bid has been accepted! Go to "<a href="{% url 'my_bids' %}">My Bids</a>" to checkout</p>
     {% elif notification.name == 'Rejected' %}
         <p id="notif-desc">Your bid has been rejected. Better luck next time!</p>
     {% else %}
-        <p id="notif-desc">Someone put an offer on one of your items! Go to "Offers for your items" for more details.</p>
+        <p id="notif-desc">Someone put an offer on one of your items! Go to "<a href="{% url 'my_offers' %}">Offers for your items</a>" for more details.</p>
     {% endif %}
     <a id="delete-notif" href="{% url 'delete' notification.id %}">
         <svg id="delete-notif-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
